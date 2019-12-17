@@ -1,6 +1,6 @@
 # Pursuit-Core-Web-React-Group-Project
 
-For this project, build an application where users can upload and view images.
+For this project, build an application where users can upload and view images.  For more on persisting images, the link [here](https://stackoverflow.com/questions/15772394/how-to-upload-display-and-save-images-using-node-js-and-express) will be helpful.
 
 ## Requirements
 
@@ -30,15 +30,20 @@ Loging in or creating an account should dismiss the login screen and display the
 ### Profile
 
 - Display the email address of the current user
-- Display all pos
+- Display the profile image of the current user and allow them to upload a new image
 - Include a "Logout" button that logs the user out and presents the login screen
 
 ### Upload image form
+
+- Give the user the ability to upload an image
+- The user should be able to add hashtags to their upload
+- Include a "Post" button
 
 ## Bonus Feature ideas
 
 - Like an image
 - Leave an emoji response on an image
 - Comment on an image
+- Show trending hashtags in the feed
 
 
