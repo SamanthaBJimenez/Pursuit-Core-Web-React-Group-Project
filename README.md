@@ -22,7 +22,8 @@ The master branch should be the most current version of the project.  Whenever y
 
 Each group member should have an account on [Trello](https://trello.com/) and the group should have a well maintained list of who is working on what task.  Without this, two people might try to edit the same file and create merge conflicts.
 
-[Example](https://trello.com/b/DnZvFigA/agile-board)
+* Make a copy of [this Trello board for your team](https://trello.com/b/dYKNBTdL). Only make one copy and make sure every team member is added to it.
+* [Other Trello board Example](https://trello.com/b/DnZvFigA/agile-board)
 
 
 ### Group Roles
