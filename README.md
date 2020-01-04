@@ -2,42 +2,6 @@
 
 For this project, in a group, build a Full-Stack Application with Express.js, PostgreSQL and React where users can upload and view images. 
 
-
-## Groupwork
-
-This is our second large group project.  There are three large things to be aware of for group projects:
-
-1. Git
-2. Trello
-3. Group Roles
-
-### Git
-
-Unlike homework in the past where you forked a Pursuit repo, then committed and pushed at the end, a group project must be more collaborative.
-
-The master branch should be the most current version of the project.  Whenever you want to make a change to the project, you should create a new branch named after the change you will be making.  Make your changes in the branch, then make a PR against master.  Someone else from your team should review the PR, then merge it into the master branch.  Everyone else should then pull the master branch to have the most current version on their local machines.
-
-
-### Trello
-
-Each group member should have an account on [Trello](https://trello.com/) and the group should have a well maintained list of who is working on what task.  Without this, two people might try to edit the same file and create merge conflicts.
-
-* Make a copy of [this Trello board for your team](https://trello.com/b/dYKNBTdL). Only make one copy and make sure every team member is added to it.
-* [Other Trello board Example](https://trello.com/b/DnZvFigA/agile-board)
-
-
-### Group Roles
-
-The expectation is that everyone in a group is chiefly occupied with writing code.  In addition to that, the following roles are important for someone to have explicit ownership of:
-
-|       Role        |                                                                                        Responsibilities                                                                                         |
-| :---------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|  Technical Lead   | In charge of maintaining the health of master branch and ensure that master is always safe to pull from.  Makes final decisions on project architecture in conversation with other team members |
-|  Project Manager  |                                                         Is responsible for the health of the Trello or board.  Organizes daily standups                                                         |
-|       UI/UX       |                                                                        Is responsible for the design and flow of the app                                                                        |
-| PR Review Process |                                     Is responsible for ensuring that PRs into master are reviewed, and that all team members are reviewing each other's PRs                                     |
-
-
 ## App Specifications
 
 - Users can create an account and sign in
@@ -55,7 +19,7 @@ Your app should have the functionality outlined below.  Feel free to add feature
 - A 'Sign In' button that logs the user in
 - A 'Create Account" button that creates a new user
 
-Logging in or creating an account should take the use their feed. Note that we won't be using a password for logging-in or signing-up just an the email address. Prevent a user signing-up with an email that is already registered. 
+Successfully logging-in or creating an account should redirect the user to their feed. Note that we won't be using a password for logging-in or signing-up just an email address. Prevent a user signing-up with an email that is already registered. 
 
 #### Feed
 
@@ -88,3 +52,18 @@ You can do this in the feed page ala Tumblr or Reddit style or have it entirely 
 - [React Image Upload Made Easy [VIDEO]](https://www.youtube.com/watch?v=XeiOnkEI7XI)
 - [How to upload, display and save images using node.js and express [STACKOVERFLOW]](https://stackoverflow.com/questions/15772394/how-to-upload-display-and-save-images-using-node-js-and-express) 
 - [Multer for file upload in Express.js](https://github.com/expressjs/multer)
+
+## To start off
+* Assemble into your groups.
+* Review [The Groupwork Notes](./groupwork.md)
+* Get a trello board from the [template](https://trello.com/b/dYKNBTdL) and add all the team members and instructors to it. The trello usernames for instructors are alejandrofranco23, wynter21 & jungraejang.
+* Discuss the project and pick a name for your App.
+* Agree on roles for every team member. (add this as ticket on trello)
+* Review sample group norms and establish your own. (add this as a ticket on trello)
+* Start working on Wireframes. (break down an add as tickets on trello)
+  * https://wireframe.cc/
+  * https://www.draw.io/
+  * Drawing with pen and paper. Upload photo of drawing to trello.
+* Break down the project into 7-10 **major tasks**. Add them as tickets/cards to trello board.
+* Break down **major tasks** into sub(smaller) tasks. Add them as tickets/cards to trello board.
+* Before starting to **code** your team have to get signed off by an instructor on your initial tickets on your trello board, wireframes, group roles and group norms. To get signed off tag us (Wynter, JR and Alejo) on a trello ticket called `Get sign off` we will comment on the ticket whether you are ready to go or need to rework things.
