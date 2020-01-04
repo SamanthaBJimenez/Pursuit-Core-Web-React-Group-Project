@@ -52,8 +52,7 @@ You can do this in the feed page ala Tumblr or Reddit style or have it entirely 
 - [React Image Upload Made Easy [VIDEO]](https://www.youtube.com/watch?v=XeiOnkEI7XI)
 - [How to upload, display and save images using node.js and express [STACKOVERFLOW]](https://stackoverflow.com/questions/15772394/how-to-upload-display-and-save-images-using-node-js-and-express) 
 - [Multer for file upload in Express.js](https://github.com/expressjs/multer)
-- [`express-generator`](https://expressjs.com/en/starter/generator.html) to get a basic scaffolding for an Express server.
-
+- [express-generator](https://expressjs.com/en/starter/generator.html). To get a basic scaffolding for an Express server in a folder called `server/` run `npx express-generator --no-view server/`
 ## To start off
 * Assemble into your groups.
 * Review [The Groupwork Notes](./groupwork.md)
