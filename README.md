@@ -46,6 +46,7 @@ You can do this in the feed page ala Tumblr or Reddit style or have it entirely 
 - Comment on an image
 - Show trending hashtags in the feed
 - Allow users to befriend/follow other users and in their feed only display posts of people they follow.
+- In the user profile have a theme toggle checkbox. Have it change the appearance of your App in some fashion, for instance toggle between light and dark theme (black background and white fonts).
 
 ### Resources
 - [Uploading an Image | Creating a REST API with Node.js [VIDEO]](https://www.youtube.com/watch?v=srPXMt1Q0nY)
