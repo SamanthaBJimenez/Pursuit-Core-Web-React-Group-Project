@@ -51,12 +51,12 @@ INSERT INTO Posts (poster_id, imageURL, content)
            (4, 'image', 'Yeah yeah yeah' ),
            (2, 'image', 'Views from Toronto');
 
-INSERT INTO Hashtags (poster_id, post_id)
-    VALUES (1, 1),
-           (2, 2),
-           (3, 3),
-           (4, 4),
-           (3, 5),
-           (1, 6),
-           (4, 7),
-           (2, 8);
+INSERT INTO Hashtags (poster_id, post_id, tag_name)
+    VALUES (1, 1, 'Montreal'),
+           (2, 2, 'runnersHigh'),
+           (3, 3, 'France'),
+           (4, 4, 'Amsterdam'),
+           (3, 5, 'Cali'),
+           (1, 6, 'Bali'),
+           (4, 7, ''),
+           (2, 8, 'Toronto');
