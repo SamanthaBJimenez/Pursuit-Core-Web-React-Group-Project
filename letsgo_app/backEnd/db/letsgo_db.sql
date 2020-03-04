@@ -4,52 +4,62 @@ CREATE DATABASE letsgo_db;
 
 \c letsgo_db;
 
-DROP TABLE IF EXISTS pictures;
-DROP TABLE IF EXISTS posts;
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS Users;  
+-- id, username, password, bio, profilepic
 
--- ///test//
-CREATE TABLE users (
+DROP TABLE IF EXISTS Posts;
+-- id, posterId, imageurl, content
+
+DROP TABLE IF EXISTS Hashtags;
+-- id, posterId
+
+CREATE TABLE Users (
     id SERIAL PRIMARY KEY,
     username VARCHAR UNIQUE,
     password TEXT,
-    email Text,
     bio TEXT,
-    proPicURL TEXT DEFAULT 'https://www.seekpng.com/png/small/41-410093_circled-user-icon-user-profile-icon-png.png'
+    profilePic VARCHAR MAX
 );
 
-CREATE TABLE posts(
+CREATE TABLE Posts (
     id SERIAL PRIMARY KEY,
-    poster_id INT REFERENCES users(id) ON DELETE CASCADE,
-    description TEXT,	
-    time_stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    poster_id INT REFERENCES Users(id) ON DELETE CASCADE,
+    imageURL VARCHAR MAX,
+    content TEXT
 );
 
-CREATE TABLE pictures(
+CREATE TABLE Hashtags {
     id SERIAL PRIMARY KEY,
-    post_id	INT REFERENCES posts(id) ON DELETE CASCADE,
-    pictureURL TEXT
-);
+    poster_id INT REFERENCES Users(id),
+    post_id  INT REFERENCES Posts(id),
+    tag_name TEXT
+};
 
-INSERT INTO users (username, password, bio, proPicURL)
-    VALUES ('Kong', 'admin123', 'Love Avicii(R.I.P), BIG Pokemon fans', 'https://static1.squarespace.com/static/5b50ebb7e749401857e16f2f/t/5d7bbf0ef00cb05d84180599/1568390933661/CONGSONG%2C+YANG+-+Cong+Song+Yang.png'),
-          ('Samantha Jimenez', 'admin123', 'My name is Sam', 'https://www.seekpng.com/png/small/41-410093_circled-user-icon-user-profile-icon-png.png'),
-          ('Henry Nunez', 'admin123', 'My name is Henry', 'https://www.seekpng.com/png/small/41-410093_circled-user-icon-user-profile-icon-png.png'),
-          ('Darsuabasi', 'admin123', 'Uduakabasi. A judoka pursuing tech dreams at Pursuit.', 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/38013965_10204917767580174_3881332877056540672_o.jpg?_nc_cat=107&_nc_ohc=gcE0O2vTZzEAX-l2BYA&_nc_ht=scontent-lga3-1.xx&oh=4976b4496286307144e4654e8cc9545c&oe=5ED39057');
+INSERT INTO Users (username, password, bio, profilePic)
+    VALUES ('darsu', 'admin123', "Yuurrrrr", 'picurl' ),
+           ('henry', 'admin123', 'Hey party people, its ya boy', 'picurl'),
+           ('sam', 'admin123', 'Heeeey now', 'picurl'),
+           ('kong', 'admin123', "PokemonGo ayeeeee", 'picurl');
 
+INSERT INTO Posts (poster_id, imageURL, content)
+    VALUES (1, 'image', 'Check me out in Montreal.'),
+           (2, 'image', 'Deff looking forward to running out here'),
+           (3, 'image', 'Biking in France...magnifique'),
+           (4, 'image', 'Catching Pokemon in Amsterdam'),
+           (3, 'image', 'Beachdayssssss'),
+           (1, 'image', 'Bali lounging'),
+           (4, 'image', 'Yeah yeah yeah' ),
+           (2, 'image', 'Views from Toronto');
 
-INSERT INTO posts (poster_id, description)
-    VALUES (1, '#Zoo'),
-        (2, 'An amazing get away #Amazon'),
-        (3, '#canada'),
-        (4, 'Love!');
-
-INSERT INTO pictures (post_id, pictureURL)
-    VALUES 
-    (1, 'https://static.scientificamerican.com/sciam/cache/file/5C51E427-1715-44E6-9B14D9487D7B7F2D_source.jpg?w=590&h=800&91ED69A6-2A32-43A3-97F8B241182A7D50'),
-    (1, 'https://www.rd.com/wp-content/uploads/2019/08/Amazon-Jungle-Yasuni-Ecuador-800x450.jpg'),
-    (1, 'https://seoimgak.mmtcdn.com/blog/sites/default/files/images/Lake-Louise.jpg'),
-    (1, 'https://66.media.tumblr.com/dcc2df64be8f0ed4083bdf361443b49a/tumblr_mf6k6mGUqn1rexwvqo1_500.jpg');
+INSERT INTO Hashtags (poster_id, post_id)
+    VALUES (1, 1),
+           (2, 2),
+           (3, 3),
+           (4, 4),
+           (3, 5),
+           (1, 6),
+           (4, 7),
+           (2, 8);
 
 
 -- INSERT INTO pictures (post_id, pictureURL) SELECT id, imgURL FROM posts;
