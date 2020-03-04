@@ -8,6 +8,7 @@ DROP TABLE IF EXISTS pictures;
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS users;
 
+-- ///test//
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR UNIQUE,
@@ -24,7 +25,7 @@ CREATE TABLE posts(
     time_stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE hastag(
+CREATE TABLE pictures(
     id SERIAL PRIMARY KEY,
     post_id	INT REFERENCES posts(id) ON DELETE CASCADE,
     pictureURL TEXT
@@ -43,7 +44,7 @@ INSERT INTO posts (poster_id, description)
         (3, '#canada'),
         (4, 'Love!');
 
-INSERT INTO hashtag (post_id, pictureURL)
+INSERT INTO pictures (post_id, pictureURL)
     VALUES 
     (1, 'https://static.scientificamerican.com/sciam/cache/file/5C51E427-1715-44E6-9B14D9487D7B7F2D_source.jpg?w=590&h=800&91ED69A6-2A32-43A3-97F8B241182A7D50'),
     (1, 'https://www.rd.com/wp-content/uploads/2019/08/Amazon-Jungle-Yasuni-Ecuador-800x450.jpg'),
