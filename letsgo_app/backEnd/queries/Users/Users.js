@@ -34,7 +34,7 @@ const getSingleUser = async (req, res, next) =>{
 
 const getNewUser = async (req, res, next) =>{
     try{
-        let newUser = await db.none('INSERT INTO Users (username, password, email, bio, proPicURL) VALUES(${username}, ${password}, ${email}, ${bio}, ${proPicURL})', req.body)
+        let newUser = await db.none(`INSERT INTO Users (username, password, bio, profilePic) VALUES('${req.body.username}', '${req.body.password}', '${req.body.bio}', '${req.body.profilePic}')`)
         res.status(200).json({
             status: 'success',
             message: 'created a new user',
@@ -43,6 +43,7 @@ const getNewUser = async (req, res, next) =>{
 
     }catch(error){
         res.status(400).json({
+            message: res,
             status: 'error',
             message: 'could not created the new user'
         })
@@ -51,13 +52,14 @@ const getNewUser = async (req, res, next) =>{
 
 const updateSingleUser = async (req, res, next) =>{
     try{
-        let updateUser = await db.one('UPDATE Users SET username = ${username}, password = ${password}, email = ${email}, bio = ${bio}, proPicURL = ${proPicURL} WHERE id = ${id} RETURNING *', req.body)
+        let updateUser = await db.one(`UPDATE Users SET username = $/username/, password = $/password/, bio = $/bio/, profilePic = $/profilePic/ WHERE id = ${req.params.id} RETURNING *`,req.body)
         res.status(200).json({
             status: 'succes',
             message: 'updated User',
             payload: updateUser
         })
     }catch(error){
+        console.log(error)
         res.status(400).json({
             status: 'error',
             message: 'could not update user'

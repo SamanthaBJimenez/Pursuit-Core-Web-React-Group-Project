@@ -7,4 +7,4 @@ postRouters.post('/', updateSinglePost);
 postRouters.delete('/:id', deleteSinglePost);
 postRouters.patch('/:id', addNewPost);
 
-modeule.exports = postRouters
+module.exports = postRouters
