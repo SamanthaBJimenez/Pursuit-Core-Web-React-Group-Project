@@ -34,7 +34,7 @@ const getSingleUser = async (req, res, next) =>{
 
 const getNewUser = async (req, res, next) =>{
     try{
-        let newUser = await db.none(`INSERT INTO Users (username, password, bio, profilePic) VALUES('${req.body.username}', '${req.body.password}', '${req.body.bio}', '${req.body.profilePic}')`)
+        let newUser = await db.none(`INSERT INTO Users (username, password, bio, profilePic, email) VALUES('${req.body.username}', '${req.body.password}', '${req.body.bio}', '${req.body.profilePic}',${req.body.email})`)
         res.status(200).json({
             status: 'success',
             message: 'created a new user',
@@ -52,7 +52,7 @@ const getNewUser = async (req, res, next) =>{
 
 const updateSingleUser = async (req, res, next) =>{
     try{
-        let updateUser = await db.one(`UPDATE Users SET username = $/username/, password = $/password/, bio = $/bio/, profilePic = $/profilePic/ WHERE id = ${req.params.id} RETURNING *`,req.body)
+        let updateUser = await db.one(`UPDATE Users SET username = $/username/, password = $/password/, bio = $/bio/, profilePic = $/profilePic/, email = $/email/ WHERE id = ${req.params.id} RETURNING *`,req.body)
         res.status(200).json({
             status: 'succes',
             message: 'updated User',
