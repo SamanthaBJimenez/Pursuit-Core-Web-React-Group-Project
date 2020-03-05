@@ -18,28 +18,28 @@ CREATE TABLE Users (
     username VARCHAR UNIQUE,
     password TEXT,
     bio TEXT,
-    profilePic VARCHAR MAX
+    profilePic VARCHAR
 );
 
 CREATE TABLE Posts (
     id SERIAL PRIMARY KEY,
     poster_id INT REFERENCES Users(id) ON DELETE CASCADE,
-    imageURL VARCHAR MAX,
+    imageURL VARCHAR,
     content TEXT
 );
 
-CREATE TABLE Hashtags {
+CREATE TABLE Hashtags (
     id SERIAL PRIMARY KEY,
     poster_id INT REFERENCES Users(id),
     post_id  INT REFERENCES Posts(id),
     tag_name TEXT
-};
+);
 
 INSERT INTO Users (username, password, bio, profilePic)
-    VALUES ('darsu', 'admin123', "Yuurrrrr", 'picurl' ),
+    VALUES ('darsu', 'admin123', 'Yuurrrrr', 'picurl' ),
            ('henry', 'admin123', 'Hey party people, its ya boy', 'picurl'),
            ('sam', 'admin123', 'Heeeey now', 'picurl'),
-           ('kong', 'admin123', "PokemonGo ayeeeee", 'picurl');
+           ('kong', 'admin123', 'PokemonGo ayeeeee', 'picurl');
 
 INSERT INTO Posts (poster_id, imageURL, content)
     VALUES (1, 'image', 'Check me out in Montreal.'),
@@ -55,8 +55,11 @@ INSERT INTO Hashtags (poster_id, post_id, tag_name)
     VALUES (1, 1, 'Montreal'),
            (2, 2, 'runnersHigh'),
            (3, 3, 'France'),
+           (3, 3, 'Europe'),
            (4, 4, 'Amsterdam'),
+           (4, 4, 'Europe'),
            (3, 5, 'Cali'),
            (1, 6, 'Bali'),
-           (4, 7, ''),
-           (2, 8, 'Toronto');
+           (4, 7, ' '),
+           (2, 8, 'Toronto'),
+           (2, 8, 'Canada');
