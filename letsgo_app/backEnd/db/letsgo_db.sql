@@ -1,16 +1,16 @@
-DROP DATABASE IF EXISTS letsgo_db;
 
+DROP DATABASE IF EXISTS letsgo_db;
 CREATE DATABASE letsgo_db;
 
 \c letsgo_db;
 
-DROP TABLE IF EXISTS Users;  
 -- id, username, password, bio, profilepic
 
-DROP TABLE IF EXISTS Posts;
 -- id, posterId, imageurl, content
 
+DROP TABLE IF EXISTS Posts;
 DROP TABLE IF EXISTS Hashtags;
+DROP TABLE IF EXISTS Users;  
 -- id, posterId
 
 CREATE TABLE Users (
@@ -18,14 +18,16 @@ CREATE TABLE Users (
     username VARCHAR UNIQUE,
     password TEXT,
     bio TEXT,
-    profilePic VARCHAR
+    profilePic VARCHAR,
+    email TEXT
 );
 
 CREATE TABLE Posts (
     id SERIAL PRIMARY KEY,
     poster_id INT REFERENCES Users(id) ON DELETE CASCADE,
     imageURL VARCHAR,
-    content TEXT
+    content TEXT,
+    time_stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE Hashtags (
@@ -35,17 +37,17 @@ CREATE TABLE Hashtags (
     tag_name TEXT
 );
 
-INSERT INTO Users (username, password, bio, profilePic)
-    VALUES ('darsu', 'admin123', 'Yuurrrrr', 'picurl' ),
-           ('henry', 'admin123', 'Hey party people, its ya boy', 'picurl'),
-           ('sam', 'admin123', 'Heeeey now', 'picurl'),
-           ('kong', 'admin123', 'PokemonGo ayeeeee', 'picurl');
+INSERT INTO Users (username, password, bio, profilePic, email)
+    VALUES ('darsu', 'admin123', 'Yuurrrrr', 'picurl','darsu@gmail.com' ),
+           ('henry', 'admin123', 'Hey party people, its ya boy', 'picurl','henry@gmail.com'),
+           ('sam', 'admin123', 'Heeeey now', 'picurl', 'sam@gmail.com'),
+           ('kong', 'admin123', 'PokemonGo ayeeeee', 'picurl', 'kong@gmail.com');
 
 INSERT INTO Posts (poster_id, imageURL, content)
-    VALUES (1, 'image', 'Check me out in Montreal.'),
+    VALUES (1, '../../frontend/public/assets/singapore-skyline.jpg', 'Check me out in Singapore Skyline.'),
            (2, 'image', 'Deff looking forward to running out here'),
            (3, 'image', 'Biking in France...magnifique'),
-           (4, 'image', 'Catching Pokemon in Amsterdam'),
+           (4, '../../frontend/public/assets/new-york-gay-pride-2018.jpg', 'Gay Pride in New York'),
            (3, 'image', 'Beachdayssssss'),
            (1, 'image', 'Bali lounging'),
            (4, 'image', 'Yeah yeah yeah' ),
@@ -56,8 +58,8 @@ INSERT INTO Hashtags (poster_id, post_id, tag_name)
            (2, 2, 'runnersHigh'),
            (3, 3, 'France'),
            (3, 3, 'Europe'),
-           (4, 4, 'Amsterdam'),
-           (4, 4, 'Europe'),
+           (4, 4, 'New York City'),
+           (4, 4, 'Pride'),
            (3, 5, 'Cali'),
            (1, 6, 'Bali'),
            (4, 7, ' '),

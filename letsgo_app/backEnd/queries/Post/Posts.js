@@ -34,7 +34,7 @@ const getSinglePost = async (req, res, next) =>{
 
 const addNewPost = async (req, res, next) =>{
     try{
-        let newPost = await db.none('INSERT INTO Posts (poster_id, description, time_stamp) VALUES(${poster_id}, ${description}, ${time_stamp})', req.body)
+        let newPost = await db.none('INSERT INTO Posts (poster_id, imageURL, content, time_stamp) VALUES(${poster_id}, ${imageURL}, ${content}, ${time_stamp})', req.body)
         res.status(200).json({
             status: 'success',
             message: 'created a new post',
