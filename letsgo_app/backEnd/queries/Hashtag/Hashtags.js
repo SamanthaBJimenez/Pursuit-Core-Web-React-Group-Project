@@ -2,7 +2,7 @@ const db = require('../../db/index');
 
 const getAllHashtags = async (req, res, next) =>{
     try{
-        let allHashtags = await db.any('SELECT * FROM hashtags');
+        let allHashtags = await db.any('SELECT * FROM Hashtags');
         res.status(200).json({
             status: 'success',
             message: 'retrieves all hashtags',
@@ -18,7 +18,7 @@ const getAllHashtags = async (req, res, next) =>{
 
 const getSingleHashtag = async (req, res, next) =>{
     try{
-        let singleHashtag = await db.one('SELECT * FROM hashtags WHERE id= $1', [req.params.id]);
+        let singleHashtag = await db.one('SELECT * FROM Hashtags WHERE id= $1', [req.params.id]);
         res.status(200).json({
             status: 'success',
             message: 'retrieves single hastags',
@@ -34,7 +34,7 @@ const getSingleHashtag = async (req, res, next) =>{
 
 const addNewHashtag = async (req, res, next) =>{
     try{
-        let newHashtag = await db.none('INSERT INTO hashtags (post_id, pictureURL) VALUES(${post_id}, ${pictureURL})', req.body)
+        let newHashtag = await db.none('INSERT INTO Hashtags (poster_id, post_id, tag_name) VALUES(${poster_id}, ${post_id}, ${tag_name})', req.body)
         res.status(200).json({
             status: 'success',
             message: 'created a new hashtag',
@@ -51,7 +51,7 @@ const addNewHashtag = async (req, res, next) =>{
 
 const updateSingleHashtag = async (req, res, next) =>{
     try{
-        let updateHastags = await db.one('UPDATE hashtags SET post_id = ${post_id}, pictureURL = ${pictureURL} WHERE id = ${id} RETURNING *', req.body)
+        let updateHastags = await db.one('UPDATE Hashtags SET poster_id = ${poster_id} post_id = ${post_id}, tag_name = ${tag_name} WHERE id = ${id} RETURNING *', req.body)
         res.status(200).json({
             status: 'succes',
             message: 'updated Hashtags',
@@ -67,7 +67,7 @@ const updateSingleHashtag = async (req, res, next) =>{
 
 const deleteSingleHashtags = async (req, res, next) =>{
     try{
-        let deleteHashtags = await db.one('DELETE FROM hashtags WHERE id = $1 RETURNING *', [req.params.id]);
+        let deleteHashtags = await db.one('DELETE FROM Hashtags WHERE id = $1 RETURNING *', [req.params.id]);
         res.status(200).json({
             status: 'success',
             message: 'deleted hashtags',

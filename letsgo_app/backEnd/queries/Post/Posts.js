@@ -2,7 +2,7 @@ const db = require('../../db/index');
 
 const getAllPosts = async (req, res, next) =>{
     try{
-        let allPosts = await db.any('SELECT * FROM posts');
+        let allPosts = await db.any('SELECT * FROM Posts');
         res.status(200).json({
             status: 'success',
             message: 'retrieves all posts',
@@ -18,7 +18,7 @@ const getAllPosts = async (req, res, next) =>{
 
 const getSinglePost = async (req, res, next) =>{
     try{
-        let singlePost = await db.one('SELECT * FROM posts WHERE id= $1', [req.params.id]);
+        let singlePost = await db.one('SELECT * FROM Posts WHERE id= $1', [req.params.id]);
         res.status(200).json({
             status: 'success',
             message: 'retrieves single post',
@@ -34,7 +34,7 @@ const getSinglePost = async (req, res, next) =>{
 
 const addNewPost = async (req, res, next) =>{
     try{
-        let newPost = await db.none('INSERT INTO posts (poster_id, description, time_stamp) VALUES(${poster_id}, ${description}, ${time_stamp})', req.body)
+        let newPost = await db.none('INSERT INTO Posts (poster_id, description, time_stamp) VALUES(${poster_id}, ${description}, ${time_stamp})', req.body)
         res.status(200).json({
             status: 'success',
             message: 'created a new post',
@@ -51,10 +51,10 @@ const addNewPost = async (req, res, next) =>{
 
 const updateSinglePost = async (req, res, next) =>{
     try{
-        let updatePost = await db.one('UPDATE posts SET poster_id = ${poster_id}, description = ${description}, time_stamp = ${time_stamp} WHERE id = ${id} RETURNING *', req.body)
+        let updatePost = await db.one('UPDATE Posts SET poster_id = ${poster_id}, description = ${description}, time_stamp = ${time_stamp} WHERE id = ${id} RETURNING *', req.body)
         res.status(200).json({
             status: 'succes',
-            message: 'updated Use',
+            message: 'updated user posts',
             payload: updateUser
         })
     }catch(error){
@@ -67,7 +67,7 @@ const updateSinglePost = async (req, res, next) =>{
 
 const deleteSinglePost = async (req, res, next) =>{
     try{
-        let deletePost = await db.one('DELETE FROM posts WHERE id = $1 RETURNING *', [req.params.id]);
+        let deletePost = await db.one('DELETE FROM Posts WHERE id = $1 RETURNING *', [req.params.id]);
         res.status(200).json({
             status: 'success',
             message: 'deleted post',
