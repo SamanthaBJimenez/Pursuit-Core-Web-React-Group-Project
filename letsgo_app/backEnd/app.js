@@ -21,7 +21,7 @@ app.use('/users', usersRouter);
 app.use(express.static(path.resolve(__dirname, "./public")))
 
 const storage = multer.diskStorage({
-   destination: "./public/uploads/",
+   destination: "./assets/uploads/",
    filename: function(req, file, cb){
       cb(null,"IMAGE-" + Date.now() + path.extname(file.originalname));
    }
