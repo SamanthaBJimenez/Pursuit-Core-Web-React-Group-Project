@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from "axios"
-import '../CSS/Upload.css';
+import '../css/Upload.css';
 
 class Upload extends React.Component {
     constructor(props) {

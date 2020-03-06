@@ -1,7 +1,7 @@
 import React from 'react';
-import Upload from './components/Upload';
-import NavBar from './components/NavBar';
-import Homepage from './components/Homepage';
+import Upload from './Components/Upload';
+import NavBar from './Components/NavBar';
+import Homepage from './Components/Homepage';
 // import LogIn from './components/LogIn';
 // import SignUp from './components/SignUp';
 import './App.css';
