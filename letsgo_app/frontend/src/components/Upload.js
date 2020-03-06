@@ -1,20 +1,19 @@
-import React from 'react';
+
+import React, { useState, useEffect } from 'react'
+
 import axios from "axios"
 import '../css/Upload.css';
 
-class Upload extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state ={
-            file: null
-        };
-        this.onFormSubmit = this.onFormSubmit.bind(this);
-        this.onChange = this.onChange.bind(this);
-    }
-    onFormSubmit(e){
+const Upload =()=> {
+    const [file, setFile] =useState(null)
+  
+    // onFormSubmit = onFormSubmit.bind(this);
+    // onChange = onChange.bind(this);
+
+    const onFormSubmit=(e)=>{
         e.preventDefault();
         const formData = new FormData();
-        formData.append('myImage',this.state.file);
+        formData.append('myImage',file);
         const config = {
             headers: {
                 'content-type': 'multipart/form-data'
@@ -23,34 +22,31 @@ class Upload extends React.Component {
         // console.log(formData , config)
         axios.post("/uploadphoto",formData,config)
         .then((response) => {
-            // debugger
                 alert("The file is successfully uploaded");
             }).catch((error) => {
         });
     }
-    onChange(e) {
-        this.setState({file:e.target.files[0]});
+    const onChange=(e)=> {
+        setFile(e.target.files[0]);
     }
-    render() {
         return (
             <>
-            <form onSubmit={this.onFormSubmit}>
+            <form onSubmit={onFormSubmit}>
                 <h1>LOGO!</h1>
                 <h3>Upload</h3>
                 <label>
                     Image
-                    <input type="file" name="myImage" onChange={this.onChange} />
+                    <input type="file" name="myImage" onChange={onChange} />
                 </label>
                 <button type="submit">Upload</button>
             </form>
                 <label>
                     Text
-                    <input type="text" name="myText" onChange={this.onChange} />
+                    <input type="text" name="myText" onChange={onChange} />
                 </label>
             <button>Post</button>
             </>
         )
-    }
 }
 
 
