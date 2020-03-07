@@ -34,16 +34,16 @@ const getSingleUser = async (req, res, next) =>{
 
 const getNewUser = async (req, res, next) =>{
     try{
-        let newUser = await db.none(`INSERT INTO Users (username, password, bio, profilePic, email) VALUES('${req.body.username}', '${req.body.password}', '${req.body.bio}', '${req.body.profilePic}',${req.body.email})`)
+        let newUser = await db.none(`INSERT INTO Users (username, password, bio, profilePic, email) VALUES('${req.body.username}', '${req.body.password}', '${req.body.bio}', '${req.body.profilePic}','${req.body.email}')`)
         res.status(200).json({
             status: 'success',
             message: 'created a new user',
-            payload: newUser
+            // payload: newUser
         })
 
     }catch(error){
+        console.log(error)
         res.status(400).json({
-            message: res,
             status: 'error',
             message: 'could not created the new user'
         })
