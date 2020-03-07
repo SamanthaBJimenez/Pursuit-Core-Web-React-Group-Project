@@ -1,13 +1,17 @@
 import React from 'react';
+import LogIn from './LogIn';
+import { NavLink } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import '../CSS/SignUp.css';
 
 class SignUp extends React.Component{
     
-
     render() {
         return(
-            <div class="signUp">
-            <nav></nav>
+            <div className="signUp">
+                <nav>
+                    <NavLink exact to={"/login"}>Log In</NavLink>
+                </nav>
                 <h1>LOGO!</h1>
                 <h3>Sign Up</h3>
                 <label>

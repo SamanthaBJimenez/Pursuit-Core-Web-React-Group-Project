@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-
+import { NavLink } from 'react-router-dom';
 import axios from "axios"
-import '../css/Upload.css';
+import '../CSS/Upload.css';
 
 const Upload =()=> {
     const [file, setFile] =useState(null)
@@ -28,6 +28,13 @@ const Upload =()=> {
     }
         return (
             <>
+            <nav>
+                <form>
+                    <input placeholder="Search"></input>
+                </form>
+                <NavLink exact to={"/homepage"}>Home</NavLink>
+                <NavLink exact to={"/signup"}>Log Out</NavLink>
+            </nav>
             <form onSubmit={onFormSubmit}>
                 <h1>LOGO!</h1>
                 <h3>Upload</h3>
