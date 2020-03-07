@@ -9,6 +9,7 @@ const getAllPosts = async (req, res, next) =>{
             payload: allPosts
         })
     }catch(error){
+        console.log(error)
         res.status(400).json({
             status: 'error',
             message: 'could not retrieve all posts'
@@ -25,6 +26,7 @@ const getSinglePost = async (req, res, next) =>{
             payload: singlePost
         })
     }catch(error){
+        console.log(error)
         res.status(400).json({
             status: 'error',
             message: 'could not get single post',
@@ -34,7 +36,7 @@ const getSinglePost = async (req, res, next) =>{
 
 const addNewPost = async (req, res, next) =>{
     try{
-        let newPost = await db.none(`INSERT INTO Posts (poster_id, imageURL, content, time_stamp) VALUES(${poster_id}, ${imageURL}, ${content}, ${time_stamp})`)
+        let newPost = await db.none(`INSERT INTO Posts (poster_id, imageURL, content) VALUES('${poster_id}', '${imageURL}', '${content}')`)
         res.status(200).json({
             status: 'success',
             message: 'created a new post',
@@ -42,6 +44,7 @@ const addNewPost = async (req, res, next) =>{
         })
 
     }catch(error){
+        console.log(error)
         res.status(400).json({
             status: 'error',
             message: 'could not created the new post'
@@ -54,10 +57,10 @@ const updateSinglePost = async (req, res, next) =>{
         let updatePost = await db.one(`UPDATE Posts SET poster_id = $/poster_id/, imageURL = $/imageURL/, content = $/content/, time_stamp = $/time_stamp/ WHERE id = ${req.params.id} RETURNING *`, req.body)
         res.status(200).json({
             status: 'succes',
-            message: 'updated user posts',
-            payload: updateUser
+            message: 'updated user posts'
         })
     }catch(error){
+        console.log(error)
         res.status(400).json({
             status: 'error',
             message: 'could not update user'
@@ -74,6 +77,7 @@ const deleteSinglePost = async (req, res, next) =>{
             payload: deletePost
         })
     }catch(error){
+        console.log(error)
         res.status(400).json({
             status: 'error',
             message: 'could not delete user'
