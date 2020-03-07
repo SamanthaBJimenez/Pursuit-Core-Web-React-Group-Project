@@ -1,4 +1,7 @@
 const uploadRouter = require('express').Router();
-const {storage, upload};
+const {singleImage} = require('../../queries/Uploads/Uploads');
 
-uploadRouter.
+uploadRouter.get('/', singleImage);
+// uploadRouter.post('/',)
+
+module.exports = singleImage
