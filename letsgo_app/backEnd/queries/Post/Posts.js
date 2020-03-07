@@ -53,7 +53,7 @@ const addNewPost = async (req, res, next) =>{
 
 const updateSinglePost = async (req, res, next) =>{
     try{
-        let updatePost = await db.one(`UPDATE Posts SET poster_id = $/poster_id/, imageURL = $/imageURL/, content = $/content/, time_stamp = $/time_stamp/ WHERE id = ${req.params.id} RETURNING *`, req.body)
+        let updatePost = await db.one(`UPDATE Posts SET poster_id = $/poster_id/, imageURL = $/imageURL/, content = $/content/ WHERE id = ${req.params.id} RETURNING *`, req.body)
         res.status(200).json({
             status: 'succes',
             message: 'updated user posts'
