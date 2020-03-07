@@ -4,14 +4,9 @@ CREATE DATABASE letsgo_db;
 
 \c letsgo_db;
 
--- id, username, password, bio, profilepic
-
--- id, posterId, imageurl, content
-
 DROP TABLE IF EXISTS Posts;
 DROP TABLE IF EXISTS Hashtags;
 DROP TABLE IF EXISTS Users;  
--- id, posterId
 
 CREATE TABLE Users (
     id SERIAL PRIMARY KEY,
