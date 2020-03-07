@@ -34,7 +34,7 @@ const getSingleHashtag = async (req, res, next) =>{
 
 const addNewHashtag = async (req, res, next) =>{
     try{
-        let newHashtag = await db.none(`INSERT INTO Hashtags (poster_id, post_id, tag_name) VALUES(${req.body.poster_id}, ${req.body.post_id}, ${req.body.tag_name})`)
+        let newHashtag = await db.none(`INSERT INTO Hashtags (poster_id, post_id, tag_name) VALUES('${req.body.poster_id}', '${req.body.post_id}', '${req.body.tag_name}')`)
         res.status(200).json({
             status: 'success',
             message: 'created a new hashtag',

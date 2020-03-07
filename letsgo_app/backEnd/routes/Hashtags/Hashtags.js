@@ -3,8 +3,8 @@ const {getAllHashtags, getSingleHashtag, updateSingleHashtag, deleteSingleHashta
 
 hashtagsRouter.get('/', getAllHashtags);
 hashtagsRouter.get('/:id', getSingleHashtag);
-hashtagsRouter.post('/',updateSingleHashtag);
+hashtagsRouter.patch('/:id',updateSingleHashtag);
 hashtagsRouter.delete('/:id',deleteSingleHashtags);
-hashtagsRouter.patch('/',addNewHashtag);
+hashtagsRouter.post('/',addNewHashtag);
 
 module.exports = hashtagsRouter;
