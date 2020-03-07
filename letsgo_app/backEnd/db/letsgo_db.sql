@@ -45,23 +45,41 @@ INSERT INTO Users (username, password, bio, profilePic, email)
 
 INSERT INTO Posts (poster_id, imageURL, content)
     VALUES (1, '../../frontend/public/assets/singapore-skyline.jpg', 'Check me out in Singapore Skyline.'),
-           (2, 'image', 'Deff looking forward to running out here'),
-           (3, 'image', 'Biking in France...magnifique'),
+           (2, '../../frontend/public/assets/bostonskyline.png', 'Deff looking forward to running out here'),
+           (3, '../../frontend/public/assets/france.png', 'Biking in France...magnifique'),
            (4, '../../frontend/public/assets/new-york-gay-pride-2018.jpg', 'Gay Pride in New York'),
-           (3, 'image', 'Beachdayssssss'),
-           (1, 'image', 'Bali lounging'),
-           (4, 'image', 'Yeah yeah yeah' ),
-           (2, 'image', 'Views from Toronto');
+           (3, '../../frontend/public/assets/beachinrio.png', 'Beachdayssssss'),
+           (1, '../../frontend/public/assets/bali.png', 'Bali lounging'),
+           (4, '../../frontend/public/assets/mexicocitytacos.png', 'Yeaaaah' ),
+           (2, '../../frontend/public/assets/torontoviews.png', 'Views from Toronto'),
+           (1, '../../frontend/public/assets/dinnerDubai.png', 'Dinner in the sky. Whos with it?');
+        --    ()
+        --    ()
+        --    ()
+        --    ()
+        --    ()
+        --    ()
+        --    ()
 
 INSERT INTO Hashtags (poster_id, post_id, tag_name)
-    VALUES (1, 1, 'Montreal'),
+    VALUES (1, 1, 'Singapore'),
+           (1, 1, 'skyline'),
            (2, 2, 'runnersHigh'),
+           (2, 2, 'Boston'),
            (3, 3, 'France'),
+           (3, 3, 'CatchUp'),
            (3, 3, 'Europe'),
            (4, 4, 'New York City'),
            (4, 4, 'Pride'),
-           (3, 5, 'Cali'),
+           (3, 5, 'Rio'),
+           (3, 5, 'Brazil'),
            (1, 6, 'Bali'),
-           (4, 7, ' '),
+           (1, 6, 'Indonesia'),
+           (4, 7, 'MexicoCity'),
+           (4, 7, 'Mexico'),
+           (4, 7, 'Foodie'),
+           (4, 7, 'RealTacos'),
            (2, 8, 'Toronto'),
-           (2, 8, 'Canada');
+           (2, 8, 'Canada'),
+           (1, 9, 'Dubai'),
+           (1, 9, 'DinnerInTheSky');
