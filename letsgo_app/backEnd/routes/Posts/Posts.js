@@ -3,8 +3,8 @@ const {getAllPosts, getSinglePost, updateSinglePost, deleteSinglePost, addNewPos
 
 postRouters.get('/', getAllPosts);
 postRouters.get('/:id', getSinglePost);
-postRouters.patch('/', updateSinglePost);
+postRouters.post('/', addNewPost);
 postRouters.delete('/:id', deleteSinglePost);
-postRouters.post('/:id', addNewPost);
+postRouters.patch('/:id', updateSinglePost);
 
 module.exports = postRouters
