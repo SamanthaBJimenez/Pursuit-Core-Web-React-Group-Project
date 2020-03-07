@@ -1,24 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
+import Upload from './Components/Upload';
+import NavBar from './Components/NavBar';
+import Homepage from './Components/Homepage';
+// import LogIn from './components/LogIn';
+// import SignUp from './components/SignUp';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <NavBar/>
+      <Switch >
+          <Route path={"/login"}>
+            <Login/>
+          </Route>
+          <Route path={"/movies"}>
+            <Movies/>
+          </Route>
+          <Route path={"/form"}>
+            <Form/>
+          </Route>
+            
+          <Route path={"/clock"} component={Clock} />
+            <Route path={"/dogs"} component={DogApp} />
+          <Route path={"/people/:id"}>
+            <Person />
+          </Route>
+          <Route  exact path={"/"} >
+              <Home/>
+              <Home/>
+          </Route>
+          <Route path="*" render={() => <div>Something Went Wrong</div>} />
+      </Switch> */}
+      <Upload />
     </div>
   );
 }
