@@ -19,9 +19,9 @@ handleVerification = async (e) => {
     let res = await axios.get(`http://localhost:3005/users/${inputEmail}`)
     debugger
     if(inputEmail === res) {
-        
+        return <div> Link to Homepage </div>
     } else {
-        return (alert("Please sign up")
+        return (alert("Please sign up + signup link")
         )
     }
     // if()
@@ -29,6 +29,8 @@ handleVerification = async (e) => {
     // let {userName} 
  
 }
+
+
 
 handleChange = (e) => {
     this.setState({
