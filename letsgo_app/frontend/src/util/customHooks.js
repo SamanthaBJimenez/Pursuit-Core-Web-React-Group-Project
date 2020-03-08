@@ -1,11 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+export const useHttp = ( url, initialValue ) =>{
+    const [data, setData] = useState(initialValue);
+    const [isLoading, setIsLoading] = useState(true);
 
-export const useInput = (initialValue) => {
-    const [value, setValue] = useState(initialValue)
-
-    const handleChange = (e) => {
-        setValue(e.target.value)
+    const fetchData = async (url) => {
+        try{
+            let res = await axios.get(url);
+            setData(res.data.payload);
+            setIsLoading(false)
+        }catch(error){
+            setData(initialValue);
+            setIsLoading(false)
+        }
     }
+    useEffect(()=>{
+        fetchData(url)
+    },[])
 
-    return { value, onChange: handleChange }
+    return [data, isLoading]
 }
