@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../CSS/Homepage.css';
-import PostImage from './Image'
+import NavLink from './NavBar'
+import PostImage from './Image';
+
 // import {useHttp} from '../Util/CustomHooks'
 import axios from 'axios';
 
@@ -28,16 +30,27 @@ const Homepage = () =>{
     const postsDisplay = posts.map(post =>{
         // debugger
         console.log(post)
-    return <PostImage key={post.id} profilePic={post.profilepic} userName={post.username} filePath={post.imageurl} />
+    return <PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} />
     })
 
 
         return(
-            <div>
-                {/* <h1>Username</h1>
+            <div className='feed'>
+                <nav className='navbar'>
+                    <form className='form'>
+                        <input placeholder='Search'></input>
+                    </form>
+                    <div className='allLinks'>
+                        <NavLink className='link' exact to={'/upload'}>Upload</NavLink>
+                        <NavLink className='link' exact to={'/signup'}>Log Out</NavLink>
+                    </div>
+                </nav>
+                <div className='userInfo'>
+                <h1>Username</h1>
                 <h2>Email</h2>
-                <p>User Information</p> */}
-            <div>{postsDisplay}</div>
+                <p>User Information</p>
+                </div>
+            <div className='split'>{postsDisplay}</div>
             </div>
         )
 
