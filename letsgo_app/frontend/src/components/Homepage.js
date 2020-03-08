@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../CSS/Homepage.css';
-import Image from './Image'
+import '../css/Homepage.css';
+import PostImage from './Image'
 // import {useHttp} from '../Util/CustomHooks'
 import axios from 'axios';
 
@@ -14,7 +14,8 @@ const Homepage = () =>{
         const fetchData = async (url,setState) =>{
             try{
                 let res = await axios.get(url);
-                setState(res.data.payload)
+                setPosts(res.data.payload)
+
             }catch(error){
                 setState([])
             }
@@ -27,14 +28,10 @@ const Homepage = () =>{
 
 
     const postsDisplay = posts.map(post =>{
-        console.log(post.imageurl)
-    return <div key={post.id}><Image filePath={post.imageurl}/>,{post.content}</div>
 
-        
+    return <div key={post.id}><PostImage filePath={post.imageurl}/>{post.content}</div>
     })
-    // const usersDisplay = users.map(user =>{
-    // return <li key={user.id}>{user.username}</li>
-    // })
+
 
         return(
             <div>

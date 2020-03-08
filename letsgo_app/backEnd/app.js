@@ -1,8 +1,8 @@
-const express = require('express');
-const multer = require('multer');
+const express = require('./node_modules/express');
+const multer = require('./node_modules/multer');
 const path = require("path");
-const cors = require('cors');
-const bodyParser = require('body-parser');
+const cors = require('./node_modules/cors/lib');
+const bodyParser = require('./node_modules/body-parser');
 const port = 3005;
 const app = express()
 
