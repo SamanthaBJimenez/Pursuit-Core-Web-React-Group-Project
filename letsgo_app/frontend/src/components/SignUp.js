@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useInput } from '../util/customHooks';
-import '../CSS/SignUp.css';
+import { useInput } from '../util/CustomHooks';
+import '../css/SignUp.css';
 import axios from 'axios';
 
 const SignUp =()=> {
@@ -14,7 +14,7 @@ const SignUp =()=> {
     
     const handleSumbit=async(e)=> {
         e.preventDefault();
-        
+
 
         const formData = new FormData();
         formData.append('myImage', file);
@@ -49,8 +49,10 @@ const SignUp =()=> {
                 <NavLink className="link" exact to={"/login"}>Log In Here</NavLink>
             </nav>
             <div className="mainPage">
-                <h1>LOGO!</h1>
+                <img src="../../assets/test2.png" alt="Smiley face" width="90%" align="left" />
+                <p>Let's Go!</p>
                 <h1>Sign Up</h1>
+                <br/>
                 <form onSubmit={handleSumbit}>
                     <label>
                         Username
