@@ -1,5 +1,22 @@
 const db = require('../../db/index');
 
+const leftJoinPostsUsers = async (req, res, next) =>{
+    try{
+        let leftJoin = await db.any('SELECT Posts.imageurl, Users.username, Users.profilePic FROM Posts LEFT JOIN Users ON Posts.poster_id = Users.id ORDER BY time_stamp DESC');
+        res.status(200).json({
+            status: 'success',
+            message: 'left join was a success',
+            payload: leftJoin
+        })
+    }catch(error){
+        res.status(400).json({
+            status: 'error',
+            message: 'left join was not success'
+        })
+
+    }
+}
+
 const getAllPosts = async (req, res, next) =>{
     try{
         let allPosts = await db.any('SELECT * FROM Posts ORDER BY time_stamp DESC');
@@ -83,4 +100,4 @@ const deleteSinglePost = async (req, res, next) =>{
         })
     }
 }
-module.exports = {getAllPosts, getSinglePost, updateSinglePost, deleteSinglePost, addNewPost}
+module.exports = {getAllPosts, getSinglePost, updateSinglePost, deleteSinglePost, addNewPost, leftJoinPostsUsers}

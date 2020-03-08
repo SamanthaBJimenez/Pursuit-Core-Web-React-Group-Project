@@ -1,7 +1,9 @@
 const postRouters = require('express').Router();
-const {getAllPosts, getSinglePost, updateSinglePost, deleteSinglePost, addNewPost} = require('../../queries/Post/Posts');
+const { getSinglePost, updateSinglePost, deleteSinglePost, addNewPost, leftJoinPostsUsers} = require('../../queries/Post/Posts');
 
-postRouters.get('/', getAllPosts);
+
+postRouters.get('/', leftJoinPostsUsers);
+
 postRouters.get('/:id', getSinglePost);
 postRouters.post('/', addNewPost);
 postRouters.delete('/:id', deleteSinglePost);

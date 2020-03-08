@@ -1,13 +1,15 @@
 import React from 'react';
 
-const PostImage = ({filePath}) => {
-    console.log(filePath)
-    return <img alt='imgPost' src={filePath}/>
+const PostImage = ({filePath, userName, profilePic}) => {
+    // const { filePath } = props; 
+    // const filePath = props.filePath
+
+    return (<div>
+        <img alt='profilePic' src={profilePic}/>
+            <p>{userName}</p>
+     <img alt='imgPost' src={filePath}/>
+    </div>)
 }
-// const Image =({url})=>{
-//     // return <img src="../../../backEnd/norway.jpg" alt=" "></img>
-//     // return <img src="../../../assets/rwanda.jpg " alt=" "></img>
-//     return <img src="../../assets/rwanda.jpg " alt=" "></img>
-// }
+
 
 export default PostImage
