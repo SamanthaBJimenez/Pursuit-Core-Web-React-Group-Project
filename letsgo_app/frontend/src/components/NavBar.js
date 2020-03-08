@@ -1,8 +1,10 @@
+
 import React from 'react';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import '../CSS/NavBar.css';
+
 
 class NavBar extends React.Component{
     
