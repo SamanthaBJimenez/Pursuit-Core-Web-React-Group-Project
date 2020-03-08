@@ -1,5 +1,6 @@
 import React from 'react';
-import Letsgo from './Components/Letsgo';
+import Letsgo from './components/Letsgo';
+
 
 import './App.css';
 

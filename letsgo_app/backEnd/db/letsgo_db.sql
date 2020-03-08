@@ -39,10 +39,10 @@ INSERT INTO Users (username, password, bio, profilePic, email)
            ('kong', 'admin123', 'PokemonGo ayeeeee', 'picurl', 'kong@gmail.com');
 
 INSERT INTO Posts (poster_id, imageURL, content)
-    VALUES (1, '../../frontend/public/assets/singapore-skyline.jpg', 'Check me out in Singapore Skyline.'),
+    VALUES (1, './public/singapore-skyline.jpg', 'Check me out in Singapore Skyline.'),
            (2, 'image', 'Deff looking forward to running out here'),
            (3, 'image', 'Biking in France...magnifique'),
-           (4, '../../frontend/public/assets/new-york-gay-pride-2018.jpg', 'Gay Pride in New York'),
+           (4, './public/new-york-gay-pride-2018.jpg', 'Gay Pride in New York'),
            (3, 'image', 'Beachdayssssss'),
            (1, 'image', 'Bali lounging'),
            (4, 'image', 'Yeah yeah yeah' ),
