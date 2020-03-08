@@ -41,6 +41,7 @@ console.log(userNameObj, emailObj, passwordObj)
                 <h1>LOGO!</h1>
                 <h3>Log In</h3>
 
+
             <form onSubmit={handleVerification}>
 
                 <input type="text" name={"userName"}  {...userNameObj} placeholder="userName" />
@@ -52,10 +53,9 @@ console.log(userNameObj, emailObj, passwordObj)
 
             </form>
             {/* <Link to="SignUp.js"> Don't Have An Account?</Link>  */}
+            
             </div>
 
         )
    }
-
-
 export default Login;
