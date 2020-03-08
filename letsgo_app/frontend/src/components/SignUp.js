@@ -45,6 +45,7 @@ const SignUp =()=> {
     return(
         <div className="signUp">
             <nav>
+            
                 Already have an account?
                 <NavLink className="link" exact to={"/login"}>Log In Here</NavLink>
             </nav>
