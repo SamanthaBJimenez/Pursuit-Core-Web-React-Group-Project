@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 export const useInput = (initialValue) => {
+    // array destructuring 
     const [value, setValue] = useState(initialValue)
 
     const handleChange = (e) => {

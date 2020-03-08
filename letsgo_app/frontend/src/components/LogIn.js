@@ -20,8 +20,10 @@ const handleVerification = async (e) => {
     if(inputEmail === res.data.payload.email && inputPassword === res.data.payload.password && inputUserName === res.data.payload.username) {
         // return <div> Link to Homepage </div>
         sessionStorage.loginedUser=res.data.payload.id
-        alert("You were successfully logged in!"
-        )
+        setTimeout(function() {
+            window.location = "../components/Homepage";
+        }) 
+        alert("You were successfully logged in!")
     }  
     else {
         return (alert("Credentials not entered or you don't exist. Please head over to our sign up page."))
