@@ -12,7 +12,6 @@ const Homepage = () =>{
         const fetchData = async (url) =>{
             try{
                 let res = await axios.get(url);
-                // debugger
                 setPosts(res.data.payload)
             }catch(error){
                 setPosts([])
@@ -26,7 +25,6 @@ const Homepage = () =>{
 
 
     const postsDisplay = posts.map(post =>{
-        debugger
     return <div key={post.id}><PostImage filePath={post.imageurl}/>{post.content}</div>
     })
 
