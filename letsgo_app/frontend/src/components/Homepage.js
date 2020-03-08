@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../CSS/Homepage.css';
 import Image from './Image'
+// import {useHttp} from '../Util/CustomHooks'
 import axios from 'axios';
 
 
@@ -19,20 +20,6 @@ const Homepage = () =>{
         }
 
         fetchPosts('http://localhost:3005/posts')
-
-        // const fetchUsers = async (url) =>{
-        //     debugger
-        //     try{
-        //         let res = await axios.get(url);
-        //         setUsers(res.data.payload);
-
-        //     }catch(error){
-        //         setUsers([])
-        //     }
-        // }
-
-        // fetchUsers('http://localhost:3005/users')
-
     }, [])
 
 
