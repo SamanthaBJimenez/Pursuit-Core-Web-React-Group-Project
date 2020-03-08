@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
 
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom';
 import axios from "axios"
 import '../CSS/Upload.css';
 
@@ -23,11 +24,38 @@ const Upload =()=> {
             }).catch((error) => {
         });
     }
+
+    const checkMimeType =(e)=>{
+        let files = e.target.files 
+        let err = ''
+       const types = ['image/png', 'image/jpeg', 'image/gif']
+        for(var x = 0; x<files.length; x++) {
+             if (types.every(type => files[x].type !== type)) {
+             err += files[x].type+' is not a supported format\n';
+           }
+         };
+       if (err !== '') { 
+            e.target.value = null
+            alert(err)
+             return false; 
+        }
+       return true;
+      }
+
     const onChange=(e)=> {
-        setFile(e.target.files[0]);
+        if(checkMimeType(e)){
+            setFile(e.target.files[0]);
+        }
     }
         return (
             <>
+            <nav>
+                <form>
+                    <input placeholder="Search"></input>
+                </form>
+                <NavLink exact to={"/homepage"}>Home</NavLink>
+                <NavLink exact to={"/signup"}>Log Out</NavLink>
+            </nav>
             <form onSubmit={onFormSubmit}>
                 <h1>LOGO!</h1>
                 <h3>Upload</h3>

@@ -14,7 +14,7 @@ CREATE TABLE Users (
     password TEXT,
     bio TEXT,
     profilePic VARCHAR,
-    email TEXT
+    email TEXT UNIQUE
 );
 
 CREATE TABLE Posts (
@@ -39,22 +39,16 @@ INSERT INTO Users (username, password, bio, profilePic, email)
            ('kong', 'admin123', 'PokemonGo ayeeeee', 'picurl', 'kong@gmail.com');
 
 INSERT INTO Posts (poster_id, imageURL, content)
-    VALUES (1, '../../frontend/public/assets/singapore-skyline.jpg', 'Check me out in Singapore Skyline.'),
-           (2, '../../frontend/public/assets/bostonskyline.png', 'Deff looking forward to running out here'),
-           (3, '../../frontend/public/assets/france.png', 'Biking in France...magnifique'),
-           (4, '../../frontend/public/assets/new-york-gay-pride-2018.jpg', 'Gay Pride in New York'),
-           (3, '../../frontend/public/assets/beachinrio.png', 'Beachdayssssss'),
-           (1, '../../frontend/public/assets/bali.png', 'Bali lounging'),
-           (4, '../../frontend/public/assets/mexicocitytacos.png', 'Yeaaaah' ),
-           (2, '../../frontend/public/assets/torontoviews.png', 'Views from Toronto'),
-           (1, '../../frontend/public/assets/dinnerDubai.png', 'Dinner in the sky. Whos with it?');
-        --    ()
-        --    ()
-        --    ()
-        --    ()
-        --    ()
-        --    ()
-        --    ()
+
+    VALUES (1, '../../assets/singapore-skyline.jpg', 'Check me out in Singapore Skyline.'),
+           (2, '../../assets/grand-canyon-south-rim-view.jpg', 'Deff looking forward to running out here'),
+           (3, '../../assets/london-kensington-palace.jpg', 'Walk in Lodon...magnifique'),
+           (4, '../../assets/new-york-gay-pride-2018.jpg', 'Gay Pride in New York'),
+           (3, '../../assets/moon-apollo-11-moon-moments-still-3.jpg', 'Moon walk'),
+           (1, '../../assets/rwanda.jpg', 'rwanda is wild'),
+           (4, '../../assets/maldives-img.jpg', 'beachs' ),
+           (2, '../../assets/las-vegas.jpg', 'Views from Vegas');
+
 
 INSERT INTO Hashtags (poster_id, post_id, tag_name)
     VALUES (1, 1, 'Singapore'),
