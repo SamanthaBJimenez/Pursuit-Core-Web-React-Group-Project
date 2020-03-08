@@ -8,6 +8,8 @@ import axios from 'axios';
 
 const Homepage = () =>{
     const [ posts, setPosts] = useState([]);
+
+
     useEffect(()=>{
         const fetchData = async (url) =>{
             try{
@@ -23,17 +25,18 @@ const Homepage = () =>{
 
 
 
-
     const postsDisplay = posts.map(post =>{
-    return <div key={post.id}><PostImage filePath={post.imageurl}/>{post.content}</div>
+        // debugger
+        console.log(post)
+    return <PostImage key={post.id} profilePic={post.profilepic} userName={post.username} filePath={post.imageurl} />
     })
 
 
         return(
             <div>
-                <h1>Username</h1>
+                {/* <h1>Username</h1>
                 <h2>Email</h2>
-                <p>User Information</p>
+                <p>User Information</p> */}
             <div>{postsDisplay}</div>
             </div>
         )
