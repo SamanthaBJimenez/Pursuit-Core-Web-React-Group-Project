@@ -5,7 +5,7 @@ import axios from "axios"
 import '../CSS/Upload.css';
 
 const Upload =()=> {
-    const [file, setFile] =useState(null)
+    const [file, setFile] = useState(null)
   
 
     const onFormSubmit=(e)=>{

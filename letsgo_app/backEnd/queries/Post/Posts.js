@@ -2,7 +2,7 @@ const db = require('../../db/index');
 
 const leftJoinPostsUsers = async (req, res, next) =>{
     try{
-        let leftJoin = await db.any('SELECT Posts.imageurl, Users.username, Users.profilePic FROM Posts LEFT JOIN Users ON Posts.poster_id = Users.id ORDER BY time_stamp DESC');
+        let leftJoin = await db.any('SELECT Posts.id, Posts.imageurl, Users.username, Users.profilePic FROM Posts LEFT JOIN Users ON Posts.poster_id = Users.id ORDER BY time_stamp DESC');
         res.status(200).json({
             status: 'success',
             message: 'left join was a success',

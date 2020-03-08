@@ -1,5 +1,5 @@
 html {
-    background-color: #436A89;
+    background-color: #F2DDC7;
 }
 
 .mainPage {
@@ -23,11 +23,11 @@ input {
 }
 
 .signUp > nav > .link:hover {
-    color: #ECECEC
+    color: #AABCA4
 }
 
 .signUp > nav > .link:visited {
-    color: #EBCBA8
+    color: #E99332
 }
 
 nav {
@@ -45,4 +45,27 @@ button {
 button:hover {
     background-color: #E99332;
     color: white;
+}
+
+.signUp > .mainPage > img {
+    object-fit: cover;
+    margin: -15px -100px 0px -35px;
+    width: 250px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.signUp > .mainPage > h1 {
+    margin: 10px 0px -20px 0px;
+    text-align: right;
+}
+
+.signUp > .mainPage > p {
+    font-size: 50px;
+    margin: 0px;
+    text-align: right;
+}
+
+.signUp > .mainPage > form {
+    margin-top: 40px;
 }
