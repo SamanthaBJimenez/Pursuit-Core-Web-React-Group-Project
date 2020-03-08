@@ -1,3 +1,48 @@
-.signUp {
+html {
+    background-color: #436A89;
+}
+
+.mainPage {
     text-align: left;
+    margin: 10% 35%;
+}
+
+label {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+input {
+    width: 100%;
+}
+
+.signUp > nav > .link {
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
+.signUp > nav > .link:hover {
+    color: #ECECEC
+}
+
+.signUp > nav > .link:visited {
+    color: #EBCBA8
+}
+
+nav {
+    position: absolute;
+    right: 0;
+    top: 7px;
+}
+
+button {
+    border: 2px solid #EBCBA8;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #E99332;
+    color: white;
 }

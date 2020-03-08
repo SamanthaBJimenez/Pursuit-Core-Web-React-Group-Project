@@ -9,6 +9,7 @@ const app = express()
 const hashtagsRouter = require('./routes/Hashtags/Hashtags')
 const postsRouter = require('./routes/Posts/Posts');
 const usersRouter = require('./routes/Users/Users');
+const uploadRouter = require('./routes/Uploads/Uploads')
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 app.use('/hashtags', hashtagsRouter);
 app.use('/posts', postsRouter);
 app.use('/users', usersRouter);
+app.use('/posts/uploads', uploadRouter)
 
 app.use(express.static(path.resolve(__dirname, "./public")))
 
@@ -44,6 +46,8 @@ app.post("/uploadphoto", (req, res) => {
     }
     )
  });
+
+
 // app.get("/", (req, res) => {
 //     res.json({
 //       random: "this is a GET"
@@ -57,4 +61,4 @@ app.post("/uploadphoto", (req, res) => {
 
 app.listen(port, ()=>{
     console.log('listenin to port ' + port)
-})
+});
