@@ -16,22 +16,19 @@ const handleVerification = async (e) => {
     let inputEmail = emailObj.value
     let inputPassword = passwordObj.value
     let res = await axios.get(`http://localhost:3005/users/${inputEmail}`)
-    // debugger
-    // if(inputEmail === res.data.payload[0].email && inputPassword === res.data.payload[2].password) {
     if(inputEmail === res.data.payload.email && inputPassword === res.data.payload.password && inputUserName === res.data.payload.username) {
         // return <div> Link to Homepage </div>
         sessionStorage.loginedUser=res.data.payload.id
         setTimeout(function() {
             window.location = "../components/Homepage";
         }) 
-        alert("You were successfully logged in!")
+        alert("You were successfully logged in!") 
     }  
     else {
         return (alert("Credentials not entered or you don't exist. Please head over to our sign up page."))
     }
  
 }
-
 // const handleChange = (e) => {
     
 //     // this.setState({
