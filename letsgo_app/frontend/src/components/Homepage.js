@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../css/Homepage.css';
+import '../CSS/Homepage.css';
 import PostImage from './Image'
 // import {useHttp} from '../Util/CustomHooks'
 import axios from 'axios';
