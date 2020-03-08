@@ -23,8 +23,28 @@ const Upload =()=> {
             }).catch((error) => {
         });
     }
+
+    const checkMimeType =(e)=>{
+        let files = e.target.files 
+        let err = ''
+       const types = ['image/png', 'image/jpeg', 'image/gif']
+        for(var x = 0; x<files.length; x++) {
+             if (types.every(type => files[x].type !== type)) {
+             err += files[x].type+' is not a supported format\n';
+           }
+         };
+       if (err !== '') { 
+            e.target.value = null
+            alert(err)
+             return false; 
+        }
+       return true;
+      }
+
     const onChange=(e)=> {
-        setFile(e.target.files[0]);
+        if(checkMimeType(e)){
+            setFile(e.target.files[0]);
+        }
     }
         return (
             <>

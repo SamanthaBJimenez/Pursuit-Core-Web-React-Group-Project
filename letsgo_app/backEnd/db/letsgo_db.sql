@@ -14,7 +14,7 @@ CREATE TABLE Users (
     password TEXT,
     bio TEXT,
     profilePic VARCHAR,
-    email TEXT
+    email TEXT UNIQUE
 );
 
 CREATE TABLE Posts (
