@@ -1,81 +1,61 @@
-
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+import React, { useEffect,useState } from 'react';
 import axios from 'axios'
 import Homepage from "../components/Homepage"
+import { useInput } from '../Util/useInput';
 
-export class Login extends Component {
+const Login =()=> {
+let userNameObj = useInput("")
+let emailObj = useInput("")
+let passwordObj = useInput("")
 
-state = {
-    userName: "",
-    email: "",
-    password: "", 
-  }
 
-handleVerification = async (e) => {
+const handleVerification = async (e) => {
     e.preventDefault() 
-    let inputEmail = this.state.email
-    let inputUserName = this.state.userName
-    let inputPassword = this.state.password
-    // let username = res.data.elements[1].value
+    let inputUserName = userNameObj.value
+    let inputEmail = emailObj.value
+    let inputPassword = passwordObj.value
     let res = await axios.get(`http://localhost:3005/users/${inputEmail}`)
-    debugger
-    if(inputEmail === res) {
-        
-    } else {
-        return (alert("Please sign up")
-        )
+    if(inputEmail === res.data.payload.email && inputPassword === res.data.payload.password && inputUserName === res.data.payload.username) {
+        // return <div> Link to Homepage </div>
+        sessionStorage.loginedUser=res.data.payload.id
+        setTimeout(function() {
+            window.location = "../components/Homepage";
+        }) 
+        alert("You were successfully logged in!") 
+    }  
+    else {
+        return (alert("Credentials not entered or you don't exist. Please head over to our sign up page."))
     }
-    // if()
-    // let  valid = res.data.elements
-    // let {userName} 
  
 }
-
-handleChange = (e) => {
-    this.setState({
-        [e.target.name]: e.target.value
-    })
-}
-
+// const handleChange = (e) => {
     
-    componentDidMount = () => {
-        
-      }
-
-
-      render() {
-          console.log(this.state)
-          
+//     // this.setState({
+//     //     [e.target.name]: e.target.value
+//     // })
+// }   
+console.log(userNameObj, emailObj, passwordObj)
           return(
-            
-        
-        // console.log(userName, email, password)
             <div className="logIn">
                 <h1>LOGO!</h1>
                 <h3>Log In</h3>
 
-            <form onSubmit={this.handleVerification}>
 
-                <input type="text" name="userName" value={this.userName} onChange={this.handleChange} placeholder="userName"/>
-        
+            <form onSubmit={handleVerification}>
 
-                <input type="text" name="email" value={this.email}  onChange={this.handleChange}   placeholder="email"/>
+                <input type="text" name={"userName"}  {...userNameObj} placeholder="userName" />
+    
+                <input type="email" name={"email"} {...emailObj}   placeholder="email" />
 
-
-
-                <input type="text" name="password" value={this.password}  onChange={this.handleChange} placeholder="password"/>
-
-
+                <input type="password" name={"password"} {...passwordObj} placeholder="password" />
                 <button type="submit"> Log In</button>
+
             </form>
             {/* <Link to="SignUp.js"> Don't Have An Account?</Link>  */}
-
-
+            
             </div>
 
         )
    }
-}
-
-
 export default Login;

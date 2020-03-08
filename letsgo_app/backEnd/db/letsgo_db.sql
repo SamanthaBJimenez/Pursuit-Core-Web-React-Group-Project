@@ -39,7 +39,6 @@ INSERT INTO Users (username, password, bio, profilePic, email)
            ('kong', 'admin123', 'PokemonGo ayeeeee', 'https://static1.squarespace.com/static/5b50ebb7e749401857e16f2f/t/5d7bbf0ef00cb05d84180599/1568390933661/CONGSONG%2C+YANG+-+Cong+Song+Yang.png', 'kong@gmail.com');
 
 INSERT INTO Posts (poster_id, imageURL, content)
-
     VALUES (1, '../../assets/singapore-skyline.jpg', 'Check me out in Singapore Skyline.'),
            (2, '../../assets/grand-canyon-south-rim-view.jpg', 'Deff looking forward to running out here'),
            (3, '../../assets/london-kensington-palace.jpg', 'Walk in Lodon...magnifique'),
