@@ -33,27 +33,6 @@ const Homepage = () =>{
         console.log(post)
     return <PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} />
     })
-<<<<<<< HEAD
-
-
-        return(
-            <div className='feed'>
-                <nav className='navbar'>
-                    <form className='form'>
-                        <input placeholder='Search'></input>
-                    </form>
-                    <div className='allLinks'>
-                        <NavLink className='link' exact to={'/upload'}>Upload</NavLink>
-                        <NavLink className='link' exact to={'/signup'}>Log Out</NavLink>
-                    </div>
-                </nav>
-                <div className='userInfo'>
-                <h1>Username</h1>
-                <h2>Email</h2>
-                <p>User Information</p>
-                </div>
-            <div className='split'>{postsDisplay}</div>
-=======
         
 return(
             <div>
@@ -77,7 +56,6 @@ return(
                 <div className="feed split">
 
                 </div>
->>>>>>> 5a533352c2661b25e73ad44d0e0afa9df86175b1
             </div>
         )
 
