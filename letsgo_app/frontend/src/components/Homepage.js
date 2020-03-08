@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import '../CSS/Homepage.css';
-import NavLink from './NavBar'
+// import '../CSS/Homepage.css';
+import { NavLink } from 'react-router-dom'
 import PostImage from './Image';
 
 // import {useHttp} from '../Util/CustomHooks'
@@ -36,7 +36,6 @@ const Homepage = () =>{
         
 return(
             <div>
-
                 <nav className="navbar">
                     <form className="form">
                         <input placeholder="Search"></input>
@@ -54,7 +53,7 @@ return(
                     <ul id="hashtags"></ul>
                 </div>
                 <div className="feed split">
-
+                    <div>{postsDisplay}</div>
                 </div>
             </div>
         )
