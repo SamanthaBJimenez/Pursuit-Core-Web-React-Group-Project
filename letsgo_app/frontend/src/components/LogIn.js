@@ -1,4 +1,7 @@
 import React from 'react';
+import SignUp from './SignUp';
+import { NavLink } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import '../CSS/LogIn.css';
 
 class LogIn extends React.Component{
@@ -6,10 +9,12 @@ class LogIn extends React.Component{
 
     render() {
         return(
-            <div class="logIn">
-            <nav></nav>
+            <div className="logIn">
+                <nav>
+                    <NavLink exact to={"/signup"}>Sign Up</NavLink>
+                </nav>
                 <h1>LOGO!</h1>
-                <h3>Log In</h3>
+                <h3>Log In page</h3>
                 <label>
                     Email
                     <input placeholder="JohnDoe@gmail.com"></input>
@@ -19,6 +24,8 @@ class LogIn extends React.Component{
                     <input placeholder="aBc123!"></input>
                 </label>
                 <button>Log In</button>
+                <br></br>
+                <button>Create New Account</button>
             </div>
         )
     }

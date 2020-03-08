@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import '../CSS/Homepage.css';
 import PostImage from './Image'
@@ -30,14 +31,15 @@ const Homepage = () =>{
         console.log(post)
     return <PostImage key={post.id} profilePic={post.profilepic} userName={post.username} filePath={post.imageurl} />
     })
-
-
-        return(
+        
+return(
             <div>
+
                 {/* <h1>Username</h1>
                 <h2>Email</h2>
                 <p>User Information</p> */}
             <div>{postsDisplay}</div>
+
             </div>
         )
 
