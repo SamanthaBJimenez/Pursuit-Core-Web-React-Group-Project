@@ -16,5 +16,6 @@ export const useInput = ( url, initialValue ) =>{
     useEffect(()=>{
         fetchData(url)
     },[])
+    
     return [data, isLoading]
 }
