@@ -1,17 +1,24 @@
-import React from './node_modules/react';
-import '../css/NavBar.css';
+
+import React from 'react';
+import SignUp from './SignUp';
+import LogIn from './LogIn';
+import { NavLink, Route, Switch } from 'react-router-dom';
+import '../CSS/NavBar.css';
+
 
 class NavBar extends React.Component{
     
 
     render() {
         return(
+            <>
             <nav>
-                {/* <NavLink exact to={"/LogIn"}>Log In</NavLink>
-                <NavLink exact to={"/SignUp"}>Sign Up</NavLink>
-                <NavLink exact to={"/Home"}>Home</NavLink>
-                <NavLink exact to={"/Upload"}>Upload</NavLink> */}
+                <NavLink exact to={"/signup"}>Sign Up</NavLink>
+                <NavLink exact to={"/login"}>Log In</NavLink>
+                <NavLink exact to={"/home"}>Home</NavLink>
+                <NavLink exact to={"/upload"}>Upload</NavLink>
             </nav>
+            </>
         )
     }
 }
