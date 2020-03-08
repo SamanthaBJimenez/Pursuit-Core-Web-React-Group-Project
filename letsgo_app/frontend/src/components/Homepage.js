@@ -8,25 +8,27 @@ import axios from 'axios';
 
 const Homepage = () =>{
     const [ posts, setPosts] = useState([]);
+    
 
     useEffect(()=>{
-        const fetchPosts = async (url) =>{
+        const fetchData = async (url,setState) =>{
             try{
                 let res = await axios.get(url);
-                setPosts(res.data.payload)
+                setState(res.data.payload)
             }catch(error){
-                setPosts([])
+                setState([])
             }
         }
 
-        fetchPosts('http://localhost:3005/posts')
+        fetchData('http://localhost:3005/posts',setPosts)
+        
     }, [])
 
 
 
     const postsDisplay = posts.map(post =>{
-        console.log(post.imageURL)
-    return <div key={post.id}><Image filePath={post.imageURL}/>,{post.content}</div>
+        console.log(post.imageurl)
+    return <div key={post.id}><Image filePath={post.imageurl}/>,{post.content}</div>
 
         
     })
