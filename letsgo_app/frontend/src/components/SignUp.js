@@ -14,6 +14,7 @@ const SignUp =()=> {
     
     const handleSumbit=async(e)=> {
         e.preventDefault();
+        
 
         const formData = new FormData();
         formData.append('myImage', file);
