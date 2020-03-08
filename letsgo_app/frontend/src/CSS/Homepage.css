@@ -1,22 +1,44 @@
 .split {
     height: 100%;
-    /* width: 50%; */
     position: fixed;
-    /* z-index: 1; */
-    /* top: 0; */
-    /* overflow-x: hidden; */
     padding-top: 20px;
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 .userInfo {
-    background-color: #C75215;
+    background-color: #436A89;
     left: 0;
     width: 30%;
 }
 
 .feed {
-    background-color: #F3E8EE;
+    background-color: #ECECEC;
     right: 0;
     width: 70%;
+}
+
+.navbar {
+    display: flex;
+    height: 100%;
+    padding: 4px;
+    background-color: #EBCBA8;
+}
+
+.navbar > .allLinks > .link {
+    padding-left: 1.5em;
+    padding-right: 1em;
+    color: black;
+}
+
+.navbar > .allLinks > .link:hover {
+    color: #E99332;
+}
+
+.navbar > .allLinks > .link:visited {
+    color: #6D7869;
+}
+
+.navbar > .allLinks {
+    position: absolute;
+    right: 0;
 }
