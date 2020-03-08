@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Homepage.css';
-import Image from './Image'
+import PostImage from './Image'
 // import {useHttp} from '../Util/CustomHooks'
 import axios from 'axios';
 
@@ -26,16 +26,9 @@ const Homepage = () =>{
 
 
     const postsDisplay = posts.map(post =>{
-        // console.log(post)
-        // debugger
-    return <div key={post.id}><Image url={post.imageURL}/>{post.content}</div>
-    // return <div key={post.id}><Image filePath={post.imageURL}/>,{post.content}</div>
-
-        
+    return <div key={post.id}><PostImage filePath={post.imageurl}/>{post.content}</div>
     })
-    // const usersDisplay = users.map(user =>{
-    // return <li key={user.id}>{user.username}</li>
-    // })
+
 
         return(
             <div>

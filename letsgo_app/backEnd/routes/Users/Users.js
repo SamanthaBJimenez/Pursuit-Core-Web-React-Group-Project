@@ -1,4 +1,4 @@
-const userRouters = require('../../node_modules/express').Router()
+const userRouters = require('express').Router()
 const {getAllUsers, getSingleUser, getNewUser, deleteSingleUser, updateSingleUser} = require('../../queries/Users/Users');
 
 userRouters.get('/', getAllUsers)
