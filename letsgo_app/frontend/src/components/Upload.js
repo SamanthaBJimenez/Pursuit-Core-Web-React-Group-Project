@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from './node_modules/react'
 
-import axios from "axios"
+import axios from "./node_modules/axios"
 import '../css/Upload.css';
 
 const Upload =()=> {
