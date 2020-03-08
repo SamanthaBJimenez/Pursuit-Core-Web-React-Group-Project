@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import axios from "axios"
-import '../css/Upload.css';
+import '../CSS/Upload.css';
 
 const Upload =()=> {
     const [file, setFile] =useState(null)
