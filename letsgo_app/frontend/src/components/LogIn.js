@@ -2,7 +2,7 @@
 import React, { useEffect,useState } from 'react';
 import axios from 'axios'
 import Homepage from "../components/Homepage"
-import { useInput } from '../Util/useInput';
+import { useInput } from '../util/useInput';
 
 const Login =()=> {
 let userNameObj = useInput("")
