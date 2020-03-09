@@ -46,7 +46,8 @@ INSERT INTO Posts (poster_id, imageURL, content)
            (3, '../../assets/moon-apollo-11-moon-moments-still-3.jpg', 'Moon walk'),
            (1, '../../assets/rwanda.jpg', 'rwanda is wild'),
            (4, '../../assets/maldives-img.jpg', 'beachs' ),
-           (2, '../../assets/las-vegas.jpg', 'Views from Vegas');
+           (2, '../../assets/las-vegas.jpg', 'Views from Vegas'),
+           (1, '../../assets/singapore-skyline.jpg', 'Views from singapore');
 
 
 INSERT INTO Hashtags (poster_id, post_id, tag_name)
@@ -69,6 +70,6 @@ INSERT INTO Hashtags (poster_id, post_id, tag_name)
            (4, 7, 'RealTacos'),
            (2, 8, 'Toronto'),
            (2, 8, 'Canada'),
-           (1, 9, 'Dubai'),
-           (1, 9, 'DinnerInTheSky');
+           (1, 9, 'Singapore'),
+           (1, 9, 'TheSky');
 

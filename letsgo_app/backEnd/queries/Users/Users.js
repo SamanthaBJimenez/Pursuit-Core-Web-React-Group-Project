@@ -18,7 +18,7 @@ const getAllUsers = async (req, res, next) =>{
 
 const getSingleUser = async (req, res, next) =>{
     try{
-        let singleUser = await db.one('SELECT * FROM Users WHERE email= $1', [req.params.email]);
+        let singleUser = await db.one('SELECT * FROM Users WHERE id= $1', [req.params.id]);
         res.status(200).json({
             status: 'success',
             message: 'retrieves single user by ID',

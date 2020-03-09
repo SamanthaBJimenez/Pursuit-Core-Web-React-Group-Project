@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import axios from "axios"
-import '../CSS/Upload.css';
+import '../css/Upload.css';
 
 const Upload =()=> {
     const [file, setFile] = useState(null)

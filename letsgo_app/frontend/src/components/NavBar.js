@@ -15,7 +15,7 @@ class NavBar extends React.Component{
             <nav>
                 <NavLink exact to={"/signup"}>Sign Up</NavLink>
                 <NavLink exact to={"/login"}>Log In</NavLink>
-                <NavLink exact to={"/home"}>Home</NavLink>
+                <NavLink exact to={"/homepage"}>Home</NavLink>
                 <NavLink exact to={"/upload"}>Upload</NavLink>
             </nav>
             </>
