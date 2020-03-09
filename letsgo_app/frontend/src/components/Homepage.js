@@ -24,8 +24,9 @@ const Homepage = () =>{
 
 
     const postsDisplay = posts.map(post =>{
-        // console.log(post)
-    return <PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} />
+        console.log(post.content)
+    debugger
+    return <PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content} />
     })
         
 return(
