@@ -21,7 +21,7 @@ const handleVerification = async (e) => {
         // return <div> Link to Homepage </div>
         sessionStorage.loginedUser=res.data.payload.id
         setTimeout(function() {
-            window.location = "../components/Homepage";
+            window.location = "../homepage";
         }) 
         alert("You were successfully logged in!") 
     }  

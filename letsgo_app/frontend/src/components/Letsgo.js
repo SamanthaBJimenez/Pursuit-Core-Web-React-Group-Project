@@ -12,7 +12,7 @@ export class Letsgo extends Component {
             <div className="letsgo">
             <h1>Welcome to Lets Go</h1>
            <Switch>
-               <Route path={"/home"}>
+               <Route path={"/homepage"}>
                    <Homepage/>
                </Route>
                <Route path={"/upload"}>

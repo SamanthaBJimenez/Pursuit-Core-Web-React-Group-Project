@@ -3,7 +3,7 @@ const {getAllUsers, getSingleUser, getNewUser, deleteSingleUser, updateSingleUse
 
 userRouters.get('/', getAllUsers)
 userRouters.get('/:id', getSingleUser)
-userRouters.get('/:email', getSingleUserByEmail)
+userRouters.get('/email/:email', getSingleUserByEmail)
 userRouters.post('/', getNewUser)
 userRouters.delete('/:id', deleteSingleUser)
 userRouters.patch('/:id', updateSingleUser)

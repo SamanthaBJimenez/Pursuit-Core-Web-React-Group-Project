@@ -1,14 +1,9 @@
-
-
 import React, { useState, useEffect } from 'react';
-// import '../CSS/Homepage.css';
+// import '../css/Homepage.css';
 import { NavLink } from 'react-router-dom'
 import PostImage from './Image';
-
-// import {useHttp} from '../Util/CustomHooks'
+import UserInfo from './UserInfo'
 import axios from 'axios';
-
-
 
 
 const Homepage = () =>{
@@ -28,11 +23,8 @@ const Homepage = () =>{
     }, [])
 
 
-
-
     const postsDisplay = posts.map(post =>{
-        // debugger
-        console.log(post)
+        // console.log(post)
     return <PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} />
     })
         
@@ -48,11 +40,8 @@ return(
                     </div>
                 </nav>
                 <div className="userInfo split">
-                    <h1>Username</h1>
-                    <h2>Email</h2>
-                    {/* <image></image> */}
-                    <p>UserInformation</p>
-                    <ul id="hashtags"></ul>
+                    <UserInfo/>
+                    {/* <ul id="hashtags"></ul> */}
                 </div>
                 <div className="feed split">
                     <div>{postsDisplay}</div>

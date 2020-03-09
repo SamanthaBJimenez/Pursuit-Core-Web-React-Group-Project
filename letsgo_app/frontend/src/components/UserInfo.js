@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import PostImage from './Image'
 import axios from "axios"
 
 const  UserInfo =()=> {
@@ -10,22 +9,23 @@ const  UserInfo =()=> {
         const getUserInfo = async(url)=>{
             try {
                 let res= await axios.get(url)
+                // debugger
                 setUser(res.data.payload)
             } catch (error) {
                 setUser([])
             }
         }
-        getUserInfo(`http://localhost:3005/users/${1}`)
+        getUserInfo(`http://localhost:3005/users/${sessionStorage.loginedUser}`)
 
     }, [])
     
     const handleStyle ={
-     heigh:"400px",
-     width:"350px"
+     heigh:"100px",
+     width:"50px"
     }
 
     const displayUser = () =>{
-        return <div className="loggedUser" style={handleStyle}><h2>{user.username}</h2><h3>{user.email}</h3><PostImage key={user.id} filePath={user.profilepic}/></div> 
+        return <div className="loggedUser" style={handleStyle}><h2>{user.username}</h2><h5>{user.email}</h5><img src={user.profilepic}></img></div> 
     }
         return (
             <div>
