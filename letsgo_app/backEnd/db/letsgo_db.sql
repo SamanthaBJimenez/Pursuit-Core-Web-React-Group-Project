@@ -47,8 +47,8 @@ INSERT INTO Posts (poster_id, imageURL, content)
            (1, '../../assets/rwanda.jpg', 'rwanda is wild'),
            (4, '../../assets/maldives-img.jpg', 'beachs' ),
            (2, '../../assets/las-vegas.jpg', 'Views from Vegas'),
-           (1, '../../assets/singapore-skyline.jpg', 'Views from singapore');
-        --    (1, '../../assets/maldives-img.jpg', 'last post without any hastags');
+           (1, '../../assets/singapore-skyline.jpg', 'Views from singapore'),
+           (1, '../../assets/maldives-img.jpg', 'last post without any hastags');
 
 
 INSERT INTO Hashtags (poster_id, post_id, tag_name)

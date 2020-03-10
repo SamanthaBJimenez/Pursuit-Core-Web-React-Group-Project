@@ -17,6 +17,26 @@ const getAllHashtags = async (req, res, next) =>{
     }
 }
 
+const hashtagsBasedOnPost = async (req, res, next) =>{
+    try{
+        let hashtagsPost = await db.any('SELECT Posts.imageURL, ARRAY_REMOVE(ARRAY_AGG(Hashtags.tag_name), NULL) FROM Hashtags LEFT JOIN Posts ON Hashtags.post_id = Posts.id GROUP BY Posts.imageURL');
+        res.status(200).json({
+            status: 'success',
+            message: 'these hashtags are based on the post',
+            payload: hashtagsPost
+        })
+
+    }catch(error){
+        console.log(error)
+        res.status(400).json({
+            status: 'error',
+            message: 'could not retrieve hashtags based on posts'
+        })
+
+    }
+}
+
+
 const getSingleHashtag = async (req, res, next) =>{
     try{
         let singleHashtag = await db.one('SELECT * FROM Hashtags WHERE tag_name = $1', [req.params.tag_name]);
@@ -84,4 +104,4 @@ const deleteSingleHashtags = async (req, res, next) =>{
         })
     }
 }
-module.exports = {getAllHashtags, getSingleHashtag, updateSingleHashtag, deleteSingleHashtags, addNewHashtag}
+module.exports = {getAllHashtags, getSingleHashtag, updateSingleHashtag, deleteSingleHashtags, addNewHashtag, hashtagsBasedOnPost}
