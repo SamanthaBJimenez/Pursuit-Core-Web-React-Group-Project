@@ -27,8 +27,11 @@ const Upload =()=> {
         console.log(res.data)
         // debugger
         if(res.data.status==="success"){
+            SetImagePath(res.data.payload);
             alert("Image is successfully uploaded")
-            setFile("");
+            setFile("")
+        }else{
+            alert(`${res.data.status.message}`)
         }
 
     }
@@ -55,7 +58,8 @@ const Upload =()=> {
             setFile(e.target.files[0]);
         }
     }
-    
+
+    console.log(image)
         return (
             <>
             <nav>
