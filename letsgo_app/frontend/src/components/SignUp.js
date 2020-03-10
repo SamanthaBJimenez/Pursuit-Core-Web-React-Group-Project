@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useInput } from '../util/CustomHooks';
+import { useInput } from '../util/useInput';
 import "../css/SignUp.css"
 import axios from "axios"
 
@@ -10,6 +10,7 @@ const SignUp =()=> {
     const password = useInput("")
     const bio = useInput("")
     const profilePic = useInput("")
+
     const [file, setFile] = useState(null)
     
     const handleSumbit=async(e)=> {
