@@ -14,7 +14,8 @@ const PostImage = ({filePath, userName, profilePic}) => {
 
     return (<div>
      <img alt=' ' src={profilePic} style={handleStyleProfile}/>
-     <img alt={userName} src={filePath} style={handleStylePost}/>
+     {/* <img alt={userName} src={filePath} style={handleStylePost}/> */}
+     <img alt={userName} src="../../assets/uploads/IMAGE-1583815427327.jpg" style={handleStylePost}/>
     </div>)
 }
 

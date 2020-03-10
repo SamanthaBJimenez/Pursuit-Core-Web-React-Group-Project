@@ -7,6 +7,8 @@ import { useInput } from '../util/useInput';
 
 const Upload =()=> {
     const [file, setFile] = useState("")
+    const [image,SetImagePath] = useState("")
+
     let contentObj=useInput("")
     let hashtagObj=useInput("")
 
@@ -20,8 +22,14 @@ const Upload =()=> {
                 'content-type': 'multipart/form-data'
             }
         };
+
         let res= await axios.post("http://localhost:3000/posts/uploads",formData,config)
         console.log(res.data)
+        // debugger
+        if(res.data.status==="success"){
+            alert("Image is successfully uploaded")
+            setFile("");
+        }
 
     }
 
