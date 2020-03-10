@@ -13,7 +13,7 @@ const Upload =()=> {
     let hashtagObj=useInput("")
 
 
-    const onFormSubmit=async(e)=>{
+    const onUploadImage=async(e)=>{
         e.preventDefault();
         const formData = new FormData();
         formData.append('myImage',file);
@@ -53,13 +53,25 @@ const Upload =()=> {
        return true;
       }
 
-    const onUpload=(e)=> {
+    const onSelectImage=(e)=> {
         if(checkMimeType(e)){
             setFile(e.target.files[0]);
         }
     }
+    const handleNewPost= async()=>{
+        let newPost = await axios.post(`http://localhost:3005/posts/`,{poster_id:sessionStorage.loginedUser,imageURL:image,content:contentObj.value})
+        console.log(newPost.data)
+        handleNewHashTag(newPost.data.payload)
+    }
+    const handleNewHashTag =async(data)=>{
+        if(hashtagObj.value){
+            let newHashTag = await axios.post(`http://localhost:3005/hashtags/`,{poster_id:data.poster_id,post_id:data.id,tag_name:hashtagObj.value})
+            console.log(newHashTag.data)
+        }else{
+            console.log("No Hash_Tag was added")
+        }
+    }
 
-    console.log(image)
         return (
             <>
             <nav>
@@ -69,11 +81,11 @@ const Upload =()=> {
                 <NavLink exact to={"/homepage"}>Home</NavLink>
                 <NavLink exact to={"/login"}>Log Out</NavLink>
             </nav>
-            <form onSubmit={onFormSubmit}>
+            <form onSubmit={onUploadImage}>
                 <h3>Upload</h3>
                 <label>
                     Image
-                    <input type="file" name="myImage" onChange={onUpload} />
+                    <input type="file" name="myImage" onChange={onSelectImage} />
                 </label>
                 <button type="submit">Upload</button>
             </form>
@@ -85,7 +97,7 @@ const Upload =()=> {
                     Create hashtag #
                     <input type="text" placeholder="hash tag ##" name="hashtag" {...hashtagObj} />
                 </label>
-            <button>Post</button>
+            <button onClick={handleNewPost}>Post</button>
             </>
         )
 }
