@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useInput } from '../util/CustomHooks';
-import '../css/SignUp.css';
-import axios from 'axios';
-​
+import "../css/SignUp.css"
+import axios from "axios"
+
 const SignUp =()=> {
     const username = useInput("")
     const email = useInput("")
@@ -14,20 +14,16 @@ const SignUp =()=> {
     
     const handleSumbit=async(e)=> {
         e.preventDefault();
-​
-​
         const formData = new FormData();
         formData.append('myImage', file);
-​
         const config = {
             headers: {
                 'content-type': 'multipart/form-data'
             }
         };
-​
         try{
             await axios.post("http://localhost:3005/users/", {username: username.value, password: password.value, bio: bio.value, profilePic: profilePic.value, email: email.value});
-            
+        
             axios.post("/uploadphoto", formData, config).then((response) => {
                 debugger;
                 alert("The file is successfully uploaded");
@@ -37,11 +33,9 @@ const SignUp =()=> {
             console.log(error);
         }
     }
-​
     const onChange=(e)=> {
         setFile(e.target.files[0]);
     }
-​
     return(
         <div className="signUp">
             <nav>
@@ -80,5 +74,5 @@ const SignUp =()=> {
         </div>
     )
 }
-​
+
 export default SignUp;
