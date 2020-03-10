@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import axios from "axios"
-import '../css/Upload.css';
+// import '../css/Upload.css';
 import { useInput } from '../util/useInput';
 
 

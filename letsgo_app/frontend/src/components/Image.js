@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PostImage = ({filePath, userName, profilePic}) => {
+const PostImage = ({filePath, userName, profilePic, postContent}) => {
     // const { filePath } = props; 
     // const filePath = props.filePath
     const handleStyleProfile ={
@@ -13,8 +13,12 @@ const PostImage = ({filePath, userName, profilePic}) => {
        }
 
     return (<div>
+    <h4>{userName}</h4>
      <img alt=' ' src={profilePic} style={handleStyleProfile}/>
+
      <img alt={userName} src={filePath} style={handleStylePost}/>
+    <p>{postContent}</p>
+
     </div>)
 }
 

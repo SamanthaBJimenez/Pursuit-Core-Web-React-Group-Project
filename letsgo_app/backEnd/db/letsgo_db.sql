@@ -42,12 +42,13 @@ INSERT INTO Posts (poster_id, imageURL, content)
     VALUES (1, '../../assets/singapore-skyline.jpg', 'Check me out in Singapore Skyline.'),
            (2, '../../assets/grand-canyon-south-rim-view.jpg', 'Deff looking forward to running out here'),
            (3, '../../assets/london-kensington-palace.jpg', 'Walk in Lodon...magnifique'),
-           (4, '../../assets/new-york-gay-pride-2018.jpg', 'Gay Pride in New York'),
+           (4, '../../assets/new-york-gay-pride-2018.jpg', 'Gay Pride in New York, with my main man Henryt'),
            (3, '../../assets/moon-apollo-11-moon-moments-still-3.jpg', 'Moon walk'),
            (1, '../../assets/rwanda.jpg', 'rwanda is wild'),
            (4, '../../assets/maldives-img.jpg', 'beachs' ),
            (2, '../../assets/las-vegas.jpg', 'Views from Vegas'),
-           (1, '../../assets/singapore-skyline.jpg', 'Views from singapore');
+           (1, '../../assets/singapore-skyline.jpg', 'Views from singapore'),
+           (1, '../../assets/maldives-img.jpg', 'last post without any hastags');
 
 
 INSERT INTO Hashtags (poster_id, post_id, tag_name)

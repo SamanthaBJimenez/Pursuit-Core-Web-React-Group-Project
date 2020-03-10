@@ -1,7 +1,7 @@
 import React from 'react';
 import Letsgo from './components/Letsgo';
 
-import './App.css';
+// import './App.css';
 
 function App() {
   return (
