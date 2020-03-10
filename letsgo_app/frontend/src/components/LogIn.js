@@ -1,7 +1,6 @@
-// import React, { Component } from 'react';
-import React, { useEffect,useState } from 'react';
+import React from 'react';
+// import React, { useEffect,useState } from 'react';
 import axios from 'axios'
-import Homepage from "../components/Homepage"
 import { useInput } from '../util/useInput';
 
 const Login =()=> {
@@ -16,7 +15,6 @@ const handleVerification = async (e) => {
     let inputEmail = emailObj.value
     let inputPassword = passwordObj.value
     let res = await axios.get(`http://localhost:3005/users/email/${inputEmail}`)
-    debugger
     if(inputEmail === res.data.payload.email && inputPassword === res.data.payload.password && inputUserName === res.data.payload.username) {
         // return <div> Link to Homepage </div>
         sessionStorage.loginedUser=res.data.payload.id
