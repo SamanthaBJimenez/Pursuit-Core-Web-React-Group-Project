@@ -25,7 +25,7 @@ const  UserInfo =()=> {
     }
 
     const displayUser = () =>{
-        return <div className="loggedUser" style={handleStyle}><h2>{user.username}</h2><h5>{user.email}</h5><img src={user.profilepic}></img></div> 
+        return <div className="loggedUser" style={handleStyle}><h2>{user.username}</h2><h5>{user.email}</h5><img src={user.profilepic} alt="User Profile"></img><p>{user.bio}</p></div> 
     }
         return (
             <div>

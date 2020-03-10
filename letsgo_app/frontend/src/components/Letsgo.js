@@ -10,7 +10,7 @@ export class Letsgo extends Component {
     render() {
         return (
             <div className="letsgo">
-            <h1>Welcome to Lets Go</h1>
+            {/* <h1>Welcome to Lets Go</h1> */}
            <Switch>
                <Route path={"/homepage"}>
                    <Homepage/>
