@@ -19,7 +19,7 @@ const getAllHashtags = async (req, res, next) =>{
 
 const hashtagsBasedOnPost = async (req, res, next) =>{
     try{
-        let hashtagsPost = await db.any('SELECT Posts.imageURL, ARRAY_REMOVE(ARRAY_AGG(Hashtags.tag_name), NULL) FROM Hashtags LEFT JOIN Posts ON Hashtags.post_id = Posts.id GROUP BY Posts.imageURL');
+        let hashtagsPost = await db.any(`SELECT Posts.id AS post_id, Posts.imageURL, ARRAY_AGG(Hashtags.tag_name) FROM Hashtags LEFT JOIN Posts ON Hashtags.post_id = Posts.id GROUP BY Posts.id`);
         res.status(200).json({
             status: 'success',
             message: 'these hashtags are based on the post',
