@@ -8,6 +8,7 @@ import axios from 'axios';
 
 const Homepage = () =>{
     const [ posts, setPosts] = useState([]);
+    const [ hashtags, setHashtags ] = useState([]);
 
 
     useEffect(()=>{
@@ -19,13 +20,27 @@ const Homepage = () =>{
                 setPosts([])
             }
         }
+        const fetchTags = async (url) =>{
+            try{
+                let tag = await axios.get(url);
+                debugger
+                setHashtags(tag.data.payload)
+            }catch(error){
+                setHashtags([])
+            }
+        }
+
         fetchData('http://localhost:3005/posts');
+        fetchTags('http://localhost:3005/hashtags')
     }, [])
 
 
     const postsDisplay = posts.map(post =>{
-        // console.log(post)
-    return <PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} />
+        console.log(post.content)
+    return <PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content} />
+    })
+    const postTags = hashtags.map(tag =>{
+        console.log(tag)
     })
         
 return(
@@ -44,7 +59,8 @@ return(
                     {/* <ul id="hashtags"></ul> */}
                 </div>
                 <div className="feed split">
-                    <div>{postsDisplay}</div>
+                <div>{postsDisplay}{postTags}</div>
+
                 </div>
             </div>
         )
