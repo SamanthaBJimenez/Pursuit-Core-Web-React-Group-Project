@@ -20,20 +20,16 @@ const Upload =()=> {
                 'content-type': 'multipart/form-data'
             }
         };
-        // console.log(formData , config)
         let res= await axios.post("http://localhost:3000/posts/uploads",formData,config)
         console.log(res.data)
-        // .then((response) => {
-        //         alert("The file is successfully uploaded");
-        //     }).catch((error) => {
-        // });
+
     }
 
     const checkMimeType =(e)=>{
         let files = e.target.files 
         let err = ''
        const types = ['image/png', 'image/jpeg', 'image/gif']
-        for(var x = 0; x<files.length; x++) {
+        for(let x = 0; x<files.length; x++) {
              if (types.every(type => files[x].type !== type)) {
              err += files[x].type+' is not a supported format\n';
            }
