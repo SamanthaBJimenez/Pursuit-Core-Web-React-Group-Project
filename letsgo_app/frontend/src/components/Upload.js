@@ -2,12 +2,16 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import axios from "axios"
 import '../css/Upload.css';
+import { useInput } from '../util/useInput';
+
 
 const Upload =()=> {
-    const [file, setFile] = useState(null)
-  
+    const [file, setFile] = useState("")
+    let contentObj=useInput("")
+    let hashtagObj=useInput("")
 
-    const onFormSubmit=(e)=>{
+
+    const onFormSubmit=async(e)=>{
         e.preventDefault();
         const formData = new FormData();
         formData.append('myImage',file);
@@ -17,11 +21,12 @@ const Upload =()=> {
             }
         };
         // console.log(formData , config)
-        axios.post("/uploadphoto",formData,config)
-        .then((response) => {
-                alert("The file is successfully uploaded");
-            }).catch((error) => {
-        });
+        let res= await axios.post("http://localhost:3000/posts/uploads",formData,config)
+        console.log(res.data)
+        // .then((response) => {
+        //         alert("The file is successfully uploaded");
+        //     }).catch((error) => {
+        // });
     }
 
     const checkMimeType =(e)=>{
@@ -41,11 +46,12 @@ const Upload =()=> {
        return true;
       }
 
-    const onChange=(e)=> {
+    const onUpload=(e)=> {
         if(checkMimeType(e)){
             setFile(e.target.files[0]);
         }
     }
+    
         return (
             <>
             <nav>
@@ -53,20 +59,23 @@ const Upload =()=> {
                     <input placeholder="Search"></input>
                 </form>
                 <NavLink exact to={"/homepage"}>Home</NavLink>
-                <NavLink exact to={"/signup"}>Log Out</NavLink>
+                <NavLink exact to={"/login"}>Log Out</NavLink>
             </nav>
             <form onSubmit={onFormSubmit}>
-                <h1>LOGO!</h1>
                 <h3>Upload</h3>
                 <label>
                     Image
-                    <input type="file" name="myImage" onChange={onChange} />
+                    <input type="file" name="myImage" onChange={onUpload} />
                 </label>
                 <button type="submit">Upload</button>
             </form>
                 <label>
-                    Text
-                    <input type="text" name="myText" onChange={onChange} />
+                    Post Content
+                    <input type="text" placeholder="whats in your mind?" name="content" {...contentObj}/>
+                </label>
+                <label>
+                    Create hashtag #
+                    <input type="text" placeholder="hash tag ##" name="hashtag" {...hashtagObj} />
                 </label>
             <button>Post</button>
             </>

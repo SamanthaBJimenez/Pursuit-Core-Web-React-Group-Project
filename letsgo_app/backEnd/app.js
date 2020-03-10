@@ -1,6 +1,6 @@
 const express = require('./node_modules/express');
-const multer = require('./node_modules/multer');
-const path = require("path");
+// const multer = require('./node_modules/multer');
+// const path = require("path");
 const cors = require('./node_modules/cors/lib');
 const bodyParser = require('./node_modules/body-parser');
 const port = 3005;
@@ -20,32 +20,32 @@ app.use('/posts', postsRouter);
 app.use('/users', usersRouter);
 app.use('/posts/uploads', uploadRouter)
 
-app.use(express.static(path.resolve(__dirname, "./public")))
+// app.use(express.static(path.resolve(__dirname, "./public")))
 
-const storage = multer.diskStorage({
-   destination: "./assets/uploads/",
-   filename: function(req, file, cb){
-      cb(null,"IMAGE-" + Date.now() + path.extname(file.originalname));
-   }
-});
+// const storage = multer.diskStorage({
+//    destination: "./assets/uploads/",
+//    filename: function(req, file, cb){
+//       cb(null,"IMAGE-" + Date.now() + path.extname(file.originalname));
+//    }
+// });
 
-const upload = multer({
-   storage: storage,
-   limits:{fileSize: 1000000},
-}).single("myImage");
+// const upload = multer({
+//    storage: storage,
+//    limits:{fileSize: 1000000},
+// }).single("myImage");
 
 // const router = express.Router();
 
-app.post("/uploadphoto", (req, res) => {
-    upload(req, res, 
-     function(err) {
-       console.log("Request ---", req.body);
-       console.log("Request file ---", req.file);
+// app.post("/uploadphoto", (req, res) => {
+//     upload(req, res, 
+//      function(err) {
+//        console.log("Request ---", req.body);
+//        console.log("Request file ---", req.file);
        
-       res.json("/uploads/" + req.file.filename)
-    }
-    )
- });
+//        res.json("/uploads/" + req.file.filename)
+//     }
+//     )
+//  });
 
 
 // app.get("/", (req, res) => {

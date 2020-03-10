@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useInput } from '../util/CustomHooks';
-import '../css/SignUp.css';
-import axios from 'axios';
+import "../css/SignUp.css"
+import axios from "axios"
 
 const SignUp =()=> {
     const username = useInput("")
@@ -14,20 +14,16 @@ const SignUp =()=> {
     
     const handleSumbit=async(e)=> {
         e.preventDefault();
-
-
         const formData = new FormData();
         formData.append('myImage', file);
-
         const config = {
             headers: {
                 'content-type': 'multipart/form-data'
             }
         };
-
         try{
             await axios.post("http://localhost:3005/users/", {username: username.value, password: password.value, bio: bio.value, profilePic: profilePic.value, email: email.value});
-            
+        
             axios.post("/uploadphoto", formData, config).then((response) => {
                 debugger;
                 alert("The file is successfully uploaded");
@@ -37,11 +33,9 @@ const SignUp =()=> {
             console.log(error);
         }
     }
-
     const onChange=(e)=> {
         setFile(e.target.files[0]);
     }
-
     return(
         <div className="signUp">
             <nav>
@@ -49,7 +43,7 @@ const SignUp =()=> {
                 <NavLink className="link" exact to={"/login"}>Log In Here</NavLink>
             </nav>
             <div className="mainPage">
-                <img src="../../assets/test2.png" alt="Smiley face" width="90%" align="left" />
+                <img className="logo" src="../../assets/test2.png" alt="logo" width="90%" align="left" />
                 <p>Let's Go!</p>
                 <h1>Sign Up</h1>
                 <br/>
@@ -68,7 +62,7 @@ const SignUp =()=> {
                     </label>
                     <label>
                         Bio
-                        <input type="text" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." {...bio} />
+                        <input type="text" placeholder="Bio" {...bio} />
                     </label>
                     <label>
                         Profile Picture
