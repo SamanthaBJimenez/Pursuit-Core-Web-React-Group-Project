@@ -26,32 +26,19 @@ const Homepage = () =>{
         fetchData('http://localhost:3005/posts')
     }, [])
 
-    // useEffect(()=>{
-    //     const fetchTags = async (url) =>{
-    //         try{
-    //             let tag = await axios.get(url);
-    //             setHashtags(tag.data.payload)
-    //         }catch(error){
-    //             setHashtags([])
-    //         }
-    //     }
-    //     fetchTags(`http://localhost:3005/hashtags/`)
-    // }, [])
 
 
-    const allPosts = {};
+    // const allPosts = {};
     
-    posts.forEach(post =>{
-        allPosts[post.id] = post
-    });
+    // posts.forEach(post =>{
+    //     allPosts[post.id] = post
+    // });
     
     // hashtags.forEach(hashtag =>{
     //     allPosts[hashtag.post_id]["hash"] = hashtag.array_agg
     // });
   
     
-    
-    console.log(allPosts)
     
     // const displayAllPosts = allPosts.map(post =>{
     //     debugger
@@ -66,8 +53,6 @@ const Homepage = () =>{
         </>)
     })
 
-    
-    
 
 
 return(
@@ -83,7 +68,6 @@ return(
                 </nav>
                 <div className="userInfo split">
                     <UserInfo/>
-                    {/* <ul id="hashtags"></ul> */}
                 </div>
                 <div className="feed split">
                 <div>
