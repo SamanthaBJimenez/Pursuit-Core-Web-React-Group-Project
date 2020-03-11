@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+const Hashtags = ({ postId }) => {
+  const [tags, setTags] = useState([]);
+
+  const fetchTags = async (url) => {
+      try {
+          let res = await axios.get(url);
+          setTags(res.data.payload);
+        } catch (error) {
+            setTags([]);
+        }
+    };
+
+    useEffect(() => {
+        fetchTags(`http://localhost:3005/hashtags/${postId}`)
+    }, [tags]);
 
 
-// const PostTags = ({hashtags}) =>{
-//     const hashtagsArr = hashtags.map(hashtag =>{
-//         return `#${hashtag} `
-//     })
-
-//     return(
-//         <p>{hashtagsArr}</p>
-//         )
-// }
-// //map
-// export default PostTags
+  const getAllTags = tags.map(tag=>{
+  return <p>#{tag.tag_name}</p>
+  })
+  return (
+  <div>{getAllTags}</div>
+  )
+};
+export default Hashtags;
 
 // const
