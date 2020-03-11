@@ -11,6 +11,8 @@ const PostImage = ({filePath, userName, profilePic, postContent}) => {
         heigh:"400px",
         width:"500px"
        }
+   
+   
 
     return (<div>
     <h4>{userName}</h4>
@@ -18,7 +20,6 @@ const PostImage = ({filePath, userName, profilePic, postContent}) => {
 
      <img alt={userName} src={filePath} style={handleStylePost}/>
     <p>{postContent}</p>
-
     </div>)
 }
 

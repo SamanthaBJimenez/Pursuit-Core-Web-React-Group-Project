@@ -11,18 +11,8 @@ const Homepage = () =>{
     const [ posts, setPosts] = useState([]);
     const [ hashtags, setHashtags ] = useState([]);
 
-    useEffect(() => {
-        const fetchTags = async (url) =>{
-            try{
-                let tag = await axios.get(url);
-                setHashtags(tag.data.payload)
-            }catch(error){
-                setHashtags([])
-            }
-        }
-        fetchTags('http://localhost:3005/hashtags')
 
-    },[])
+    
     useEffect(()=>{
         const fetchData = async (url) =>{
             try{
@@ -32,19 +22,58 @@ const Homepage = () =>{
                 setPosts([])
             }
         }
+        
+        fetchData('http://localhost:3005/posts')
+    }, [])
 
-        fetchData('http://localhost:3005/posts');
+    useEffect(()=>{
+        const fetchTags = async (url) =>{
+            try{
+                let tag = await axios.get(url);
+                setHashtags(tag.data.payload)
+            }catch(error){
+                setHashtags([])
+            }
+        }
+        fetchTags(`http://localhost:3005/hashtags/`)
     }, [])
 
 
-    const postsDisplay = posts.map(post =>{
-    return <PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content} />    
-    })
+    const allPosts = {};
+    let postArr = [];
+
+    posts.forEach(post =>{
+        allPosts[post.id] = post
+    });
+
+    hashtags.forEach(hashtag =>{
+        allPosts[hashtag.post_id]["hash"] = hashtag.array_agg
+    });
+
+    for(const el in allPosts){
+        console.log(allPosts)
+        postArr.push( <PostImage key={allPosts[el]} src= {allPosts[el]["imageurl"]} username={allPosts[el]["username"]} /> )
+    }
     
-    const postTags = hashtags.map(tag =>{
-        debugger
-       return <PostTags key={tag.post_id} hashtags={tag.array_agg} />
-        })
+    // const displayAllPosts = allPosts.map(post =>{
+    //     debugger
+    //     return <PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content}/>
+    // })
+
+
+
+    // const postsDisplay = posts.map(post =>{
+
+    // return <PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content}/>
+    // })
+
+    // const postTags = hashtags.map(hashtag =>{
+    //     return <PostTags key={hashtag.post_id} hashtags={hashtag.array_agg}/>
+    // })
+    
+    
+
+
 return(
             <div>
                 <nav className="navbar">
@@ -61,32 +90,16 @@ return(
                     {/* <ul id="hashtags"></ul> */}
                 </div>
                 <div className="feed split">
-                <div>{postsDisplay}</div>
-                <div>{postTags}</div>
+                <div>
+                    {postArr}
+                </div>
 
+                
                 </div>
             </div>
         )
 
 }
 
-// class Homepage extends React.Component{
-//     render() {
-//         return(
-            // <div>
-            //     <div className="userInfo split">
-            //         <h1>Username</h1>
-            //         <h2>Email</h2>
-            //         {/* <image></image> */}
-            //         <p>UserInformation</p>
-            //         <ul id="hashtags"></ul>
-            //     </div>
-            //     <div className="feed split">
-
-            //     </div>
-            // </div>
-//         )
-//     }
-// }
 
 export default Homepage;
