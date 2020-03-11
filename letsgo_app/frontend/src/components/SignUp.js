@@ -48,7 +48,7 @@ const SignUp =()=> {
                 <p>Let's Go!</p>
                 <h1>Sign Up</h1>
                 <br/>
-                <form onSubmit={handleSumbit}>
+                <form className="signUpForm" onSubmit={handleSumbit}>
                     <label>
                         Username
                         <input type="text" placeholder="JohnDoe" {...username} />

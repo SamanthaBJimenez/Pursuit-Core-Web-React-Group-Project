@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import axios from "axios"
-// import '../css/Upload.css';
+import '../css/Upload.css';
 import { useInput } from '../util/useInput';
 
 
@@ -74,30 +74,36 @@ const Upload =()=> {
 
         return (
             <>
-            <nav>
-                <form>
+            <div className="wholePage">
+            <nav className="nav">
+                <form className="search">
                     <input placeholder="Search"></input>
                 </form>
-                <NavLink exact to={"/homepage"}>Home</NavLink>
-                <NavLink exact to={"/login"}>Log Out</NavLink>
+                <div className="link">
+                    <NavLink className="navLink" exact to={"/homepage"}>Home</NavLink>
+                    <NavLink className="navLink" exact to={"/login"}>Log Out</NavLink>
+                </div>
             </nav>
-            <form onSubmit={onUploadImage}>
-                <h3>Upload</h3>
-                <label>
-                    Image
-                    <input type="file" name="myImage" onChange={onSelectImage} />
-                </label>
-                <button type="submit">Upload</button>
-            </form>
-                <label>
-                    Post Content
-                    <input type="text" placeholder="whats in your mind?" name="content" {...contentObj}/>
-                </label>
-                <label>
-                    Create hashtag #
-                    <input type="text" placeholder="hash tag ##" name="hashtag" {...hashtagObj} />
-                </label>
-            <button onClick={handleNewPost}>Post</button>
+            <div className="mainPage">
+                <form onSubmit={onUploadImage}>
+                    <h3>Upload</h3>
+                    <label>
+                        Image
+                        <input type="file" name="myImage" onChange={onSelectImage} />
+                    </label>
+                    <button type="submit">Upload</button>
+                </form>
+                    <label>
+                        Post Content
+                        <input type="text" placeholder="whats in your mind?" name="content" {...contentObj}/>
+                    </label>
+                    <label>
+                        Create hashtag #
+                        <input type="text" placeholder="hash tag ##" name="hashtag" {...hashtagObj} />
+                    </label>
+                <button onClick={handleNewPost}>Post</button>
+            </div>
+            </div>
             </>
         )
 }

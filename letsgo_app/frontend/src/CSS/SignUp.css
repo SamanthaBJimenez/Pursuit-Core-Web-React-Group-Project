@@ -1,4 +1,4 @@
-html {
+.signUp {
     background-color: #F2DDC7;
     background-image: url("./background.jpg");
     background-position: center;
@@ -79,6 +79,6 @@ p {
     font-weight: bold;
 }
 
-form {
+.signUpForm {
     margin-top: 40px;
 }
