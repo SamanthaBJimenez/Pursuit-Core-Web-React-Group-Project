@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import axios from "axios"
 // import '../css/Upload.css';
+import SearchAutoComplete from "./SearchAutoComplete"
 import { useInput } from '../util/useInput';
 
 
@@ -76,7 +77,7 @@ const Upload =()=> {
             <>
             <nav>
                 <form>
-                    <input placeholder="Search"></input>
+                   <SearchAutoComplete/>
                 </form>
                 <NavLink exact to={"/homepage"}>Home</NavLink>
                 <NavLink exact to={"/login"}>Log Out</NavLink>
