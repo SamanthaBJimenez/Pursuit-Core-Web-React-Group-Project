@@ -49,16 +49,17 @@ const SearchAutoComplete =()=> {
             res.data.payload.map((el)=>{
                 setData(prevState=>[...prevState,el.username.toLowerCase()])
             })
-        }else if (res.data.payload[0].tag_name){
+        }else if (res.data.payload[0].array_agg){
+            // debugger
                 res.data.payload.map((el)=>{
-                    setData(prevState=>[...prevState,el.tag_name.toLowerCase()])
+                    setData(prevState=>[...prevState,...el.array_agg])
                 })
         }
     }
 
     useEffect(()=>{
         fetchData("http://localhost:3005/users/",setUser)
-        fetchData("http://localhost:3005/hashtags/",setHashTag)
+        fetchData("http://localhost:3005/hashtags/",setUser)
 
     }, [])
         console.log(text)
