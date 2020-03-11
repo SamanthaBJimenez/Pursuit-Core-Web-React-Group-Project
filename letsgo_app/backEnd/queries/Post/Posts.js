@@ -2,7 +2,7 @@ const db = require('../../db/index');
 
 const leftJoinPostsUsers = async (req, res, next) =>{
     try{
-        let leftJoin = await db.any('SELECT Posts.id, Posts.imageurl, Users.username, Users.profilePic FROM Posts LEFT JOIN Users ON Posts.poster_id = Users.id ORDER BY time_stamp DESC');
+        let leftJoin = await db.any('SELECT Posts.id, Posts.imageurl, Posts.content, Users.username, Users.profilePic FROM Posts LEFT JOIN Users ON Posts.poster_id = Users.id ORDER BY time_stamp DESC');
         res.status(200).json({
             status: 'success',
             message: 'left join was a success',
@@ -53,9 +53,10 @@ const getSinglePost = async (req, res, next) =>{
 
 const addNewPost = async (req, res, next) =>{
     try{
-        let newPost = await db.none(`INSERT INTO Posts (poster_id, imageURL, content) VALUES('${req.body.poster_id}', '${req.body.imageURL}', '${req.body.content}')`)
+        let newPost = await db.one(`INSERT INTO Posts (poster_id, imageURL, content) VALUES('${req.body.poster_id}', '${req.body.imageURL}', '${req.body.content}')RETURNING *`)
         res.status(200).json({
             status: 'success',
+            payload:newPost,
             message: 'created a new post'
         })
 

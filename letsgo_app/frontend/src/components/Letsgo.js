@@ -10,8 +10,11 @@ export class Letsgo extends Component {
     render() {
         return (
             <div className="letsgo">
-            <h1>Welcome to Lets Go</h1>
-           <Switch>
+
+           <Switch >
+               <Route path={"/signup"}>
+                   <SignUp/>
+               </Route>
                <Route path={"/homepage"}>
                    <Homepage/>
                </Route>
@@ -20,9 +23,6 @@ export class Letsgo extends Component {
                </Route>
                <Route path={"/login"}>
                    <LogIn/>
-               </Route>
-               <Route path={"/signup"}>
-                   <SignUp/>
                </Route>
            </Switch>
             </div>

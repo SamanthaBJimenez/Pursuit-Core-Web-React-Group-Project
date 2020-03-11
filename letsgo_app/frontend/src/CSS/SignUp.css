@@ -1,10 +1,27 @@
 html {
     background-color: #F2DDC7;
+    background-image: url("./background.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    overflow: hidden;
+}
+
+img {
+    object-fit: cover;
+    margin: -50px -100px -5px -35px;
+    width: 360px;
+    height: 200px;
+    overflow: hidden;
 }
 
 .mainPage {
     text-align: left;
-    margin: 10% 35%;
+    margin: 5% 30% 10% 30%;
+    background: rgba(255,255,255,.9);
+    padding: 55px;
+    border-radius: 40px;
 }
 
 label {
@@ -17,17 +34,17 @@ input {
     width: 100%;
 }
 
-.signUp > nav > .link {
+.link {
     padding-left: .5em;
     padding-right: .5em;
 }
 
-.signUp > nav > .link:hover {
-    color: #AABCA4
+.link:hover {
+    color: #AABCA4;
 }
 
-.signUp > nav > .link:visited {
-    color: #E99332
+.link:visited {
+    color: #E99332;
 }
 
 nav {
@@ -40,6 +57,9 @@ button {
     border: 2px solid #EBCBA8;
     transition-duration: 0.4s;
     border-radius: 5px;
+    font-size: 13px;
+    padding: 1.5px 20px;
+    margin-top: 15px;
 }
 
 button:hover {
@@ -47,25 +67,18 @@ button:hover {
     color: white;
 }
 
-.signUp > .mainPage > img {
-    object-fit: cover;
-    margin: -15px -100px 0px -35px;
-    width: 250px;
-    height: 150px;
-    overflow: hidden;
-}
-
-.signUp > .mainPage > h1 {
+h1 {
     margin: 10px 0px -20px 0px;
     text-align: right;
 }
 
-.signUp > .mainPage > p {
+p {
     font-size: 50px;
     margin: 0px;
     text-align: right;
+    font-weight: bold;
 }
 
-.signUp > .mainPage > form {
+form {
     margin-top: 40px;
 }

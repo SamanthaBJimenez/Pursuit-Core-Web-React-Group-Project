@@ -18,7 +18,6 @@ const handleVerification = async (e) => {
     let inputUserName = userNameObj.value
     let inputEmail = emailObj.value
     let inputPassword = passwordObj.value
-    debugger
     let res = await axios.get(`http://localhost:3005/users/email/${inputEmail}`)
     if(inputEmail === res.data.payload.email && inputPassword === res.data.payload.password && inputUserName === res.data.payload.username) {
         // return <div> Link to Homepage </div>
