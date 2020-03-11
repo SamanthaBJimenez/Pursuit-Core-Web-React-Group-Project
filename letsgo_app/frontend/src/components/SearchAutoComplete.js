@@ -1,29 +1,26 @@
-import React, { Component } from 'react'
+// import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 
-export class SearchAutoComplete extends Component {
-    state = {
-        usernameList:[
-            'David',
-            'Damien',
-            'Sara',
-            'Jane'
-        ],
-        hashTagList:[],
-        suggestion:[]
-    }
+import axios from "axios"
 
-    handleChange=(e)=>{
+const SearchAutoComplete =()=> {
+    const [usernameList, setUser] = useState([])
+    const [hashTagList,setHashTag] = useState("")
+    const [suggestion, setSuggest]=useState("")
+
+ 
+   const handleChange=(e)=>{
         const value =e.target.value
         let suggestion=[];
         if(value.length>0){
             const regex = new RegExp(`${value}`,`i`);
-            suggestion=this.state.usernameList.sort().filter(v=>regex.test(v));
+            suggestion=usernameList.sort().filter(v=>regex.test(v));
         }
-        this.setState({suggestion})
+        setHashTag(suggestion)
     }
 
-    renderSuggestion(){
-        const {suggestion}=this.state;
+    const renderSuggestion=()=>{
+        // const {suggestion}=this.state;
         if(suggestion.length===0){
             return null
         }
@@ -34,18 +31,34 @@ export class SearchAutoComplete extends Component {
         )
     }
 
-    componentDidCatch(){
-
+    const fetchData= async(url,setData)=>{
+        let res= await axios.get(url)
+        // debugger
+        if(res.data.payload[0].username){
+            res.data.payload.map((el)=>{
+                setData(prevState=>[...prevState,el.username.toLowerCase()])
+            })
+        }else if (res.data.payload[0].tag_name){
+                res.data.payload.map((el)=>{
+                    setData(prevState=>[...prevState,el.tag_name.toLowerCase()])
+                })
+        }
     }
 
-    render() {
+    useEffect(()=>{
+        fetchData("http://localhost:3005/users/",setUser)
+        fetchData("http://localhost:3005/hashtags/",setHashTag)
+
+    }, [])
+
+    console.log(usernameList,hashTagList)
+
         return (
             <div>
-                <input type="text" onChange={this.handleChange}/>
-              {this.renderSuggestion()}
+                <input type="text" onChange={handleChange}/>
+              {renderSuggestion()}
             </div>
         )
     }
-}
 
 export default SearchAutoComplete
