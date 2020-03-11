@@ -39,7 +39,7 @@ const hashtagsBasedOnPost = async (req, res, next) =>{
 
 const getSingleHashtag = async (req, res, next) =>{
     try{
-        let singleHashtag = await db.one('SELECT * FROM Hashtags WHERE tag_name = $1', [req.params.tag_name]);
+        let singleHashtag = await db.any('SELECT * FROM Hashtags WHERE post_id = $1', [req.params.post_id]);
         res.status(200).json({
             status: 'success',
             message: 'retrieves single hastags',
