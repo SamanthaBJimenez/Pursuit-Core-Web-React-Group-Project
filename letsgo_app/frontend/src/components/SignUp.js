@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useInput } from '../util/CustomHooks';
+import { useInput } from "../Util/CustomHooks"
 import '../css/SignUp.css';
 import axios from 'axios';
 

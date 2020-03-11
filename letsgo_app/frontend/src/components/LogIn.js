@@ -1,8 +1,11 @@
 // import React, { Component } from 'react';
-import React, { useEffect,useState } from 'react';
+import React, {  } from 'react';
 import axios from 'axios'
 import Homepage from "../components/Homepage"
-import { useInput } from '../util/useInput';
+import { useInput } from '../Util/useInput'
+import { Link, NavLink } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import "../css/LogIn.css"
 
 const Login =()=> {
 let userNameObj = useInput("")
@@ -15,14 +18,14 @@ const handleVerification = async (e) => {
     let inputUserName = userNameObj.value
     let inputEmail = emailObj.value
     let inputPassword = passwordObj.value
-    let res = await axios.get(`http://localhost:3005/users/email/${inputEmail}`)
     debugger
+    let res = await axios.get(`http://localhost:3005/users/email/${inputEmail}`)
     if(inputEmail === res.data.payload.email && inputPassword === res.data.payload.password && inputUserName === res.data.payload.username) {
         // return <div> Link to Homepage </div>
         sessionStorage.loginedUser=res.data.payload.id
-        setTimeout(function() {
+        // setTimeout(function() {
             window.location = "../homepage";
-        }) 
+        // }) 
         alert("You were successfully logged in!") 
     }  
     else {
@@ -38,9 +41,14 @@ const handleVerification = async (e) => {
 // }   
 console.log(userNameObj, emailObj, passwordObj)
           return(
-            <div className="logIn">
+            <div className="loginOfficial">
+                <h1>Welcome to Lets Go</h1>
                 <h1>LOGO!</h1>
                 <h3>Log In</h3>
+             <div className="logIn"> 
+              <nav> 
+              <NavLink className="link" exact to={"/SignUp"}> Sign Up Here </NavLink>
+              </nav>
 
 
             <form onSubmit={handleVerification}>
@@ -53,10 +61,12 @@ console.log(userNameObj, emailObj, passwordObj)
                 <button type="submit"> Log In</button>
 
             </form>
-            {/* <Link to="SignUp.js"> Don't Have An Account?</Link>  */}
-            
-            </div>
-
+            <Link to="SignUp"> Don't Have An Account?</Link> 
+           
+             </div>
+        </div>
         )
    }
+
+
 export default Login;
