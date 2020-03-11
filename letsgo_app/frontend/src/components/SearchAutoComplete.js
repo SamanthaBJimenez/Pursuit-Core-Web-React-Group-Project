@@ -7,6 +7,7 @@ const SearchAutoComplete =()=> {
     const [list, setList] = useState([])
     const [suggestion, setSuggest]=useState([])
     const [text, setText]=useState("")
+    
 
  
    const handleChange=(e)=>{
