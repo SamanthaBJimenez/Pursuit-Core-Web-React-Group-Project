@@ -8,8 +8,6 @@ const SearchAutoComplete =()=> {
     const [suggestion, setSuggest]=useState([])
     const [text, setText]=useState("")
     
-
- 
    const handleChange=(e)=>{
         const value =e.target.value
         let suggestion=[];
@@ -38,30 +36,26 @@ const SearchAutoComplete =()=> {
         }
     }
 
-
     const fetchData= async(url,setData)=>{
         let res= await axios.get(url)
-        if(res.data.payload[0].username){
+        try {
             res.data.payload.map((el)=>{
-                setData(prevState=>[...prevState,el.username.toLowerCase()])
+                setData(prevState=>[...prevState,...el.array_agg])
             })
-        }else if (res.data.payload[0].array_agg){
-                res.data.payload.map((el)=>{
-                    setData(prevState=>[...prevState,...el.array_agg])
-                })
+        } catch (error) {
+            console.log(error)
         }
     }
 
     useEffect(()=>{
-        fetchData("http://localhost:3005/users/",setList)
         fetchData("http://localhost:3005/hashtags/",setList)
     }, [])
 
-        console.log(text)
         return (
             <div>
-            <input value={text} type="text" onChange={handleChange}/>
+            <input placeholder="Search Hash Tag" value={text} name="name" type="text" onChange={handleChange}/>
               {renderSuggestion()}
+              <button>Search Tag</button>
             </div>
         )
     }
