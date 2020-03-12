@@ -1,10 +1,10 @@
 .signUp {
     background-color: #F2DDC7;
-    background-image: url("./background.jpg");
+    background-image: url("./AdobeStock_173887445-1024x683.jpeg");
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: auto 100%;
+    background-size: 100% auto;
     overflow: hidden;
 }
 
@@ -19,7 +19,7 @@ img {
 .mainPage {
     text-align: left;
     margin: 5% 30% 10% 30%;
-    background: rgba(255,255,255,.9);
+    background: rgba(255,255,255,.7);
     padding: 55px;
     border-radius: 40px;
 }
