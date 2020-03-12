@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import axios from "axios"
-import '../css/Upload.css';
+// import '../css/Upload.css';
+import SearchAutoComplete from "./SearchAutoComplete"
 import { useInput } from '../util/useInput';
 
 
@@ -74,10 +75,13 @@ const Upload =()=> {
 
         return (
             <>
+
             <div className="wholePage">
             <nav className="nav">
                 <form className="search">
                     <input placeholder="Search"></input>
+                      <SearchAutoComplete/>
+
                 </form>
                 <div className="link">
                     <NavLink className="navLink" exact to={"/homepage"}>Home</NavLink>
