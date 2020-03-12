@@ -79,9 +79,7 @@ const Upload =()=> {
             <div className="wholePage">
             <nav className="nav">
                 <form className="search">
-                    <input placeholder="Search"></input>
                       <SearchAutoComplete/>
-
                 </form>
                 <div className="link">
                     <NavLink className="navLink" exact to={"/homepage"}>Home</NavLink>
@@ -89,6 +87,7 @@ const Upload =()=> {
                 </div>
             </nav>
             <div className="mainPage">
+            
                 <form onSubmit={onUploadImage}>
                     <h3>Upload</h3>
                     <label>
