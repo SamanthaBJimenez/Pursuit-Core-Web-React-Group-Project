@@ -41,57 +41,43 @@ const SignUp = () => {
     } catch (error) {
       console.log(error);
     }
-  };
-  const onChange = e => {
-    setFile(e.target.files[0]);
-  };
-  return (
-    <div className="signUp">
-      <nav>
-        Already have an account?
-        <NavLink className="link" exact to={"/login"}>
-          Log In Here
-        </NavLink>
-      </nav>
-      <div className="mainPage">
-        <img
-          className="logo"
-          src="../../assets/test2.png"
-          alt="logo"
-          width="90%"
-          align="left"
-        />
-        <p>Let's Go!</p>
-        <h1>Sign Up</h1>
-        <br />
-        <form onSubmit={handleSumbit}>
-          <label>
-            Username
-            <input type="text" placeholder="JohnDoe" {...username} />
-          </label>
-          <label>
-            Email
-            <input type="email" placeholder="JohnDoe@gmail.com" {...email} />
-          </label>
-          <label>
-            Password
-            <input type="password" placeholder="aBc123!" {...password} />
-          </label>
-          <label>
-            Bio
-            <input type="text" placeholder="Bio" {...bio} />
-          </label>
-          <label>
-            Profile Picture
-            <input type="file" name="myImage" onChange={onChange} />
-          </label>
-          <button type="submit">
-            <span>Create Account</span>
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-};
+    return(
+        <div className="signUp">
+            <nav>
+                Already have an account?
+                <NavLink className="link" exact to={"/login"}>Log In Here</NavLink>
+            </nav>
+            <div className="mainPage">
+                <img className="logo" src="../../assets/test2.png" alt="logo" width="90%" align="left" />
+                <p>Let's Go!</p>
+                <h1>Sign Up</h1>
+                <br/>
+                <form className="signUpForm" onSubmit={handleSumbit}>
+                    <label>
+                        Username
+                        <input type="text" placeholder="JohnDoe" {...username} />
+                    </label>
+                    <label>
+                        Email
+                        <input type="email" placeholder="JohnDoe@gmail.com" {...email} />
+                    </label>
+                    <label>
+                        Password
+                        <input type="password" placeholder="aBc123!" {...password} />
+                    </label>
+                    <label>
+                        Bio
+                        <input type="text" placeholder="Bio" {...bio} />
+                    </label>
+                    <label>
+                        Profile Picture
+                        <input type="file" name="myImage" onChange={onChange} />
+                    </label>
+                    <button type="submit"><span>Create Account</span></button>
+                </form>
+            </div>
+        </div>
+    )
+}
 
 export default SignUp;
