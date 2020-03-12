@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import '../css/Homepage.css';
+import '../css/Homepage.css';
 import { NavLink } from 'react-router-dom'
 import PostImage from './Image';
 import Hashtags from './Hashtags'
@@ -57,6 +57,7 @@ const Homepage = () =>{
 
 return(
             <div>
+            
                 <nav className="navbar">
                     <form className="form">
                         <input placeholder="Search"></input>
@@ -66,15 +67,17 @@ return(
                         <NavLink className="link" exact to={"/signup"}>Log Out</NavLink>
                     </div>
                 </nav>
+        
+
+                <div className="userInfoContainer">
                 <div className="userInfo split">
                     <UserInfo/>
-                </div>
+                    </div>
                 <div className="feed split">
-                <div>
+                    {postsDisplay}
                 </div>
-                {postsDisplay}
                 </div>
-            </div>
+                </div>
         )
 
 }
