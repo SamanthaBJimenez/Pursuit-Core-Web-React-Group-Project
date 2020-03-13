@@ -15,14 +15,26 @@ const Homepage = () =>{
     const fetchData = async (url) =>{
         try{
             let res = await axios.get(url);
-            debugger
+            // debugger
             setPosts(res.data.payload)
         }catch(error){
             setPosts([])
         }
     }
     
+    const searchResult =()=>{
+        return console.log("hello")
+        // return <><h1>Return todjkshkfjhdskjhfkdslhfkldshkfhsdlkhfljkshflkhslkhlkdsfh Home</h1></>
+        // debugger
+        // if(!sessionStorage.searchTerm){
+        //     return null
+        // }{
+        //     return <><h1>Return to Home</h1></>
+        // }
+    }
+
     useEffect(()=>{
+        // searchResult
         if(sessionStorage.searchTerm){
             fetchData(`http://localhost:3005/posts/hashtag/${sessionStorage.searchTerm}`)
             sessionStorage.removeItem("searchTerm")
@@ -60,6 +72,7 @@ return(
                 <div className="feed split">
                 <div>
                 </div>
+                {searchResult}
                 {postsDisplay}
                 </div>
             </div>
