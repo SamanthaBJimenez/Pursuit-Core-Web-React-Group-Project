@@ -40,7 +40,7 @@ const SignUp = () => {
         .catch(error => {});
     } catch (error) {
       console.log(error);
-    }
+    }}
     return(
         <div className="signUp">
             <nav>
@@ -79,5 +79,5 @@ const SignUp = () => {
         </div>
     )
 }
-}
+
 export default SignUp;

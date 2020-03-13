@@ -15,11 +15,11 @@ const Hashtags = ({ postId }) => {
 
     useEffect(() => {
         fetchTags(`http://localhost:3005/hashtags/${postId}`)
-    }, [tags]);
+    }, []);
 
 
   const getAllTags = tags.map(tag=>{
-  return <p>#{tag.tag_name}</p>
+  return <p key={tag.id}>#{tag.tag_name}</p>
   })
   return (
   <div>{getAllTags}</div>
