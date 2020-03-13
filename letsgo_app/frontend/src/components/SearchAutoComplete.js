@@ -39,7 +39,7 @@ const SearchAutoComplete =()=> {
         let res= await axios.get(url)
         try {
             res.data.payload.map((el)=>{
-                return setData(prevState=>[...prevState,...el.array_agg])
+                return setData(prevState=>[...prevState,el.tag_name])
             })
         } catch (error) {
             console.log(error)
@@ -52,7 +52,7 @@ const SearchAutoComplete =()=> {
     }
 
     useEffect(()=>{
-        fetchData("http://localhost:3005/hashtags/",setList)
+        fetchData("http://localhost:3005/hashtags/all",setList)
     }, [])
 
         return (

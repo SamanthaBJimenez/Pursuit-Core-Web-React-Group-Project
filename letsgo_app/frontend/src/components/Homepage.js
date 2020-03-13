@@ -42,7 +42,7 @@ return(
             <div>
                 <nav className="navbar">
                     <form className="form">
-                        <input placeholder="Search"></input>
+                       <SearchAutoComplete/>
                     </form>
                     <div className="allLinks">
                         <NavLink className="link" exact to={"/upload"}>Upload</NavLink>
