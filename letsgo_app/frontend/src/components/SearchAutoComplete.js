@@ -1,12 +1,11 @@
 
 import React, { useState, useEffect } from 'react'
-
 import axios from "axios";
 
 const SearchAutoComplete =()=> {
     const [list, setList] = useState([])
     const [suggestion, setSuggest]=useState([])
-    const [text, setText]=useState("")
+    const [search, setSearch]=useState("")
     
    const handleChange=(e)=>{
         const value =e.target.value
@@ -16,11 +15,11 @@ const SearchAutoComplete =()=> {
             suggestion=list.sort().filter(v=>regex.test(v));
         }
         setSuggest(suggestion);
-        setText(value)
+        setSearch(value)
     }
 
     const handleSelected=(value)=>{
-        setText(value);
+        setSearch(value);
         setSuggest([])
     }
 
@@ -40,11 +39,16 @@ const SearchAutoComplete =()=> {
         let res= await axios.get(url)
         try {
             res.data.payload.map((el)=>{
-                setData(prevState=>[...prevState,...el.array_agg])
+                return setData(prevState=>[...prevState,...el.array_agg])
             })
         } catch (error) {
             console.log(error)
         }
+    }
+    const handleSearch=(e)=>{
+        e.preventDefault() 
+        window.location="../homepage"
+        sessionStorage.searchTerm=e.target.elements[0].value
     }
 
     useEffect(()=>{
@@ -52,11 +56,11 @@ const SearchAutoComplete =()=> {
     }, [])
 
         return (
-            <div>
-            <input placeholder="Search Hash Tag" value={text} name="name" type="text" onChange={handleChange}/>
+            <form onSubmit={handleSearch}>
+            <input placeholder="Search Hash Tag" value={search} type="text" onChange={handleChange}/>
               {renderSuggestion()}
-              <button>Search Tag</button>
-            </div>
+              <button type="submit">Search Tag</button>
+            </form>
         )
     }
 
