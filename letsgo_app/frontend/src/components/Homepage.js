@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import PostImage from './Image';
 import Hashtags from './Hashtags'
 import UserInfo from './UserInfo'
+import SearchAutoComplete from "./SearchAutoComplete"
 import axios from 'axios';
 
 
@@ -26,28 +27,10 @@ const Homepage = () =>{
         fetchData('http://localhost:3005/posts')
     }, [])
 
-
-
-    // const allPosts = {};
-    
-    // posts.forEach(post =>{
-    //     allPosts[post.id] = post
-    // });
-    
-    // hashtags.forEach(hashtag =>{
-    //     allPosts[hashtag.post_id]["hash"] = hashtag.array_agg
-    // });
-  
-    
-    
-    // const displayAllPosts = allPosts.map(post =>{
-    //     debugger
-    //     return <PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content}/>
-    // })
-
-
-
     const postsDisplay = posts.map(post =>{
+    // return (<><PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content}/>
+          
+    //     </>)
     return (<><PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content}/>
             <Hashtags postId={post.id}/>
         </>)
