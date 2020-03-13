@@ -14,26 +14,31 @@ const Homepage = () =>{
 
 
     
-    useEffect(()=>{
-        const fetchData = async (url) =>{
-            try{
-                let res = await axios.get(url);
-                setPosts(res.data.payload)
-            }catch(error){
-                setPosts([])
-            }
+    const fetchData = async (url) =>{
+        try{
+            let res = await axios.get(url);
+            setPosts(res.data.payload)
+        }catch(error){
+            setPosts([])
         }
-        
-        fetchData('http://localhost:3005/posts')
+    }
+    
+    useEffect(()=>{
+        // fetchData('http://localhost:3005/posts')
     }, [])
 
     const postsDisplay = posts.map(post =>{
-    // return (<><PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content}/>
-          
-    //     </>)
-    return (<><PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content}/>
-            <Hashtags postId={post.id}/>
-        </>)
+            // return (<><PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content}/>
+            //         <Hashtags postId={post.id}/>
+            //     </>)
+        if(sessionStorage.searchTerm){
+            fetchData(`http://localhost:3005/posts/hashtag/${sessionStorage.searchTerm}`)
+            localStorage.removeItem("searchTerm")
+        }else{
+            return (<><PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content}/>
+                    <Hashtags postId={post.id}/>
+                </>)
+        }
     })
 
 
