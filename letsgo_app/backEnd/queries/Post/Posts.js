@@ -52,7 +52,8 @@ const getSinglePost = async (req, res, next) =>{
 }
 const getSinglePostByHashTag = async (req, res, next) =>{
     try{
-        let singlePost = await db.any(`SELECT * FROM posts JOIN hashtags ON hashtags.post_id = posts.id WHERE tag_name = $1 ORDER BY time_stamp DESC`, [req.params.hashtag]);
+        let singlePost = await db.any(`SELECT Posts.id, Posts.imageurl, Posts.content, Users.username, Users.profilePic FROM posts JOIN hashtags ON hashtags.post_id = posts.id LEFT JOIN Users ON Posts.poster_id = Users.id WHERE tag_name = $1 ORDER BY time_stamp DESC`, [req.params.hashtag]);
+        // let singlePost = await db.any(`SELECT * FROM posts JOIN hashtags ON hashtags.post_id = posts.id WHERE tag_name = $1 ORDER BY time_stamp DESC`, [req.params.hashtag]);
         res.status(200).json({
             status: 'success',
             message: 'retrieves single post',

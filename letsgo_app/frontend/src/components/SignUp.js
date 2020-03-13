@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useInput } from "../util/useInput";
-import "../css/SignUp.css"
+// import "../css/SignUp.css"
 import axios from "axios";
 
 const SignUp = () => {

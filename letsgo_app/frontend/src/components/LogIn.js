@@ -17,6 +17,7 @@ const handleVerification = async (e) => {
     let res = await axios.get(`http://localhost:3005/users/email/${inputEmail}`)
     if(inputEmail === res.data.payload.email && inputPassword === res.data.payload.password && inputUserName === res.data.payload.username) {
         // return <div> Link to Homepage </div>
+        console.log(`${res.data.payload.username} ` + "login")
         sessionStorage.loginedUser=res.data.payload.id
         setTimeout(function() {
             window.location = "../homepage";
@@ -28,13 +29,6 @@ const handleVerification = async (e) => {
     }
  
 }
-// const handleChange = (e) => {
-    
-//     // this.setState({
-//     //     [e.target.name]: e.target.value
-//     // })
-// }   
-console.log(userNameObj, emailObj, passwordObj)
           return(
             <div className="logIn">
                 <h1>LOGO!</h1>
