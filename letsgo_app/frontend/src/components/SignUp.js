@@ -71,7 +71,9 @@ const SignUp = () => {
                     </label>
                     <label>
                         Profile Picture
-                        <input type="file" name="myImage"  />
+
+                        <input type="file" name="myImage" />
+
                     </label>
                     <button type="submit"><span>Create Account</span></button>
                 </form>
@@ -79,5 +81,7 @@ const SignUp = () => {
         </div>
     )
 }
+
+
 
 export default SignUp;

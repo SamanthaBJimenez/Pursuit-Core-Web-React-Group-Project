@@ -19,13 +19,13 @@ const  UserInfo =()=> {
 
     }, [])
     
-    const handleStyle ={
-     heigh:"100px",
-     width:"50px"
-    }
-
+    // const handleStyle ={
+    //  heigh:"100px",
+    //  width:"50px"
+    // }
+    // style={handleStyle}
     const displayUser = () =>{
-        return <div className="loggedUser" style={handleStyle}><h2>{user.username}</h2><h5>{user.email}</h5><img src={user.profilepic} alt="User Profile"></img><p>{user.bio}</p></div> 
+        return <div className="loggedUser" ><h2>{user.username}</h2><h5>{user.email}</h5><img src={user.profilepic} alt="User Profile"></img><p>{user.bio}</p></div> 
     }
         return (
             <div>

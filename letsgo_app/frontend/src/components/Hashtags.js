@@ -4,26 +4,31 @@ import axios from "axios";
 const Hashtags = ({ postId }) => {
   const [tags, setTags] = useState([]);
 
-  const fetchTags = async (url) => {
-      try {
-          let res = await axios.get(url);
-          setTags(res.data.payload);
-        } catch (error) {
-            setTags([]);
-        }
-    };
-
-    useEffect(() => {
-        fetchTags(`http://localhost:3005/hashtags/${postId}`)
-    }, []);
+  const fetchTags = async url => {
+    try {
+      let res = await axios.get(url);
+      setTags(res.data.payload);
+    } catch (error) {
+      setTags([]);
+    }
+  };
 
 
-  const getAllTags = tags.map(tag=>{
-  return <p key={tag.id}>#{tag.tag_name}</p>
-  })
-  return (
-  <div>{getAllTags}</div>
-  )
+  useEffect(() => {
+    fetchTags(`http://localhost:3005/hashtags/${postId}`);
+  }, []);
+
+
+  const getAllTags = tags.map(tag => {
+    let tagAryy = [];
+
+
+    tagAryy.push(tag.tag_name);
+
+    return <p className="singleTag">#{tagAryy } </p>;
+  });
+  return <div className="hashtags">{getAllTags}</div>;
+
 };
 export default Hashtags;
 
