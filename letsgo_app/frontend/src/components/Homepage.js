@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import PostImage from './Image';
 import Hashtags from './Hashtags'
 import UserInfo from './UserInfo'
+import SearchAutoComplete from "./SearchAutoComplete"
 import axios from 'axios';
 
 
@@ -11,60 +12,47 @@ const Homepage = () =>{
     const [ posts, setPosts] = useState([]);
     // const [ hashtags, setHashtags ] = useState([]);
 
-
+    const fetchData = async (url) =>{
+        try{
+            let res = await axios.get(url);
+            debugger
+            setPosts(res.data.payload)
+        }catch(error){
+            setPosts([])
+        }
+    }
     
     useEffect(()=>{
-        const fetchData = async (url) =>{
-            try{
-                let res = await axios.get(url);
-                setPosts(res.data.payload)
-            }catch(error){
-                setPosts([])
-            }
+        if(sessionStorage.searchTerm){
+            fetchData(`http://localhost:3005/posts/hashtag/${sessionStorage.searchTerm}`)
+            sessionStorage.removeItem("searchTerm")
+        }else{
+            fetchData('http://localhost:3005/posts')
         }
-        
-        fetchData('http://localhost:3005/posts')
     }, [])
 
-
-
-    // const allPosts = {};
-    
-    // posts.forEach(post =>{
-    //     allPosts[post.id] = post
-    // });
-    
-    // hashtags.forEach(hashtag =>{
-    //     allPosts[hashtag.post_id]["hash"] = hashtag.array_agg
-    // });
-  
-    
-    
-    // const displayAllPosts = allPosts.map(post =>{
-    //     debugger
-    //     return <PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content}/>
-    // })
-
-
-
     const postsDisplay = posts.map(post =>{
-    return (<><PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content}/>
-            <Hashtags postId={post.id}/>
-        </>)
+            return (<><PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content}/>
+                    <Hashtags postId={post.id}/>
+                </>)
     })
 
-
+const handleLogOut=()=>{
+    console.log("log out")
+    sessionStorage.removeItem("loginedUser")
+    sessionStorage.removeItem("searchTerm")
+}
 
 return(
             <div>
             
                 <nav className="navbar">
-                    <form className="form">
-                        <input placeholder="Search"></input>
-                    </form>
+                    <div className="form">
+                       <SearchAutoComplete/>
+                    </div>
                     <div className="allLinks">
                         <NavLink className="link" exact to={"/upload"}>Upload</NavLink>
-                        <NavLink className="link" exact to={"/signup"}>Log Out</NavLink>
+                        <NavLink className="link" onClick={handleLogOut} exact to={"/login"}>Log Out</NavLink>
                     </div>
                 </nav>
         

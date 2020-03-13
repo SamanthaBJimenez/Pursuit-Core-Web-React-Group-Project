@@ -13,18 +13,22 @@ const Hashtags = ({ postId }) => {
     }
   };
 
+
   useEffect(() => {
     fetchTags(`http://localhost:3005/hashtags/${postId}`);
   }, [tags]);
 
+
   const getAllTags = tags.map(tag => {
     let tagAryy = [];
+
 
     tagAryy.push(tag.tag_name);
 
     return <p className="singleTag">#{tagAryy } </p>;
   });
   return <div className="hashtags">{getAllTags}</div>;
+
 };
 export default Hashtags;
 

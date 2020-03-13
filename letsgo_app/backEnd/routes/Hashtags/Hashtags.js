@@ -1,7 +1,7 @@
 const hashtagsRouter = require('express').Router();
-const { getSingleHashtag, updateSingleHashtag, deleteSingleHashtags, addNewHashtag, hashtagsBasedOnPost} = require('../../queries/Hashtag/Hashtags');
+const {getAllHashtags, getSingleHashtag, updateSingleHashtag, deleteSingleHashtags, addNewHashtag, hashtagsBasedOnPost} = require('../../queries/Hashtag/Hashtags');
 
-// hashtagsRouter.get('/', getAllHashtags);
+hashtagsRouter.get('/all', getAllHashtags);
 hashtagsRouter.get('/', hashtagsBasedOnPost)
 hashtagsRouter.get('/:post_id', getSingleHashtag);
 hashtagsRouter.post('/',addNewHashtag);
