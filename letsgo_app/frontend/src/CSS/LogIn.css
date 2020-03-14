@@ -104,7 +104,6 @@ button {
 .stylePassword:valid + .icon::after {
     content: '🛫';
 }
-
   
 .stylePassword:invalid {
     border-color: firebrick;
