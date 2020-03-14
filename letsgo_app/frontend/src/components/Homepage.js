@@ -32,7 +32,7 @@ const Homepage = () =>{
     }, [])
 
     const postsDisplay = posts.map(post =>{
-            return (<><PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} postContent={post.content}/>
+            return (<><PostImage key={post.id} profilePic={post.profilepic} userName={post.username} filePath={post.imageurl} postContent={post.content}/>
                     <Hashtags postId={post.id}/>
                 </>)
     })
