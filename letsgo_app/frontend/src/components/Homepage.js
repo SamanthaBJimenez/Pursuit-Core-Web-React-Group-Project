@@ -23,21 +23,18 @@ const Homepage = () =>{
     }
     
     const searchResult =()=>{
-        return console.log("hello")
-        // return <><h1>Return todjkshkfjhdskjhfkdslhfkldshkfhsdlkhfljkshflkhslkhlkdsfh Home</h1></>
-        // debugger
-        // if(!sessionStorage.searchTerm){
-        //     return null
-        // }{
-        //     return <><h1>Return to Home</h1></>
-        // }
+        if(sessionStorage.searchTerm){
+            return <button onClick={()=>{sessionStorage.removeItem("searchTerm");window.location.reload()}}>Return to Homepage</button>
+        }else{
+            return null
+        }
     }
 
     useEffect(()=>{
-        // searchResult
         if(sessionStorage.searchTerm){
             fetchData(`http://localhost:3005/posts/hashtag/${sessionStorage.searchTerm}`)
-            sessionStorage.removeItem("searchTerm")
+            searchResult()
+            
         }else{
             fetchData('http://localhost:3005/posts')
         }
@@ -74,6 +71,7 @@ return(
                     <UserInfo/>
                     </div>
                 <div className="feed split">
+                    {searchResult()}
                     {postsDisplay}
                 </div>
                 </div>
