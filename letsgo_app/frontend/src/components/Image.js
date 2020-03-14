@@ -1,6 +1,7 @@
 import React from "react";
+import Likes from './Likes';
 
-const PostImage = ({ filePath, userName, profilePic, postContent }) => {
+const PostImage = ({ filePath, userName, profilePic, postContent, postId }) => {
   // const { filePath } = props;
   // const filePath = props.filePath
   const handleStyleProfile = {
@@ -18,6 +19,7 @@ const PostImage = ({ filePath, userName, profilePic, postContent }) => {
       <img alt=" " src={profilePic} style={handleStyleProfile} />
 
       <img alt={userName} src={filePath} style={handleStylePost} />
+      <Likes postId={postId}/>
       <p>{postContent}</p>
     </div>
   );
