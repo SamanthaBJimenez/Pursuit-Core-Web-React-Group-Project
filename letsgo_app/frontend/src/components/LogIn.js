@@ -54,20 +54,7 @@ const Login = () => {
   return (
     <div className="mainDiv">
         <div className="videoBox">
-        {/* <video
-          autoPlay
-          loop
-          id="background-video"
-          style={{ 
-              position: "fixed", 
-              width: "100%",
-              left: 0,
-              top: 0,
-              ...backgroundCss }}
-        >
-          <source src={videoUrl} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video> */}
+
       </div>
       
     <div className="leftDiv"> 
