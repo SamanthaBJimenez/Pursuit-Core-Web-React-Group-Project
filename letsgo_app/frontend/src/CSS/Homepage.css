@@ -15,6 +15,33 @@
   grid-template-columns: .75fr 2fr;
 }
 
+div.feed.split > div> div.likes{
+  display: flex;
+  padding-bottom: 2%;
+}
+
+div.feed.split > div> div.likes > p{
+    margin-top: 19px;
+    padding-left: 10px;
+}
+
+
+div.feed.split > div> div.likes > button{
+    border: 2px solid teal;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 1.5px 5px;
+    margin-top: 15px;
+    margin-left: 50%;
+    box-shadow: 7px 7px 6px grey;
+    transition-duration: 0.4s;
+}
+
+div.feed.split > div> div.likes > button:hover{
+  color: #FE914E;
+
+}
 
 
 .userInfo {
@@ -74,6 +101,7 @@ div.feed.split > div.individualPost > h4{
 
 div.feed.split > div.individualPost > p{
   text-transform: capitalize;
+  padding-bottom: 2%;
 }
 
 .navbar {

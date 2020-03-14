@@ -47,7 +47,7 @@ const Likes = ({ postId }) => {
     }
 
     return (
-        <div>
+        <div className="likes">
             {   
                 likesArr ?
                     hasLiked(likesArr) ?
