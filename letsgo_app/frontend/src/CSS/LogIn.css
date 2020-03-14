@@ -14,7 +14,7 @@
     height: 100%; 
     max-width: 300px;
     height: 400px;
-	padding: 40px;
+    padding: 40px;
     background-color: #FE914E;
     font-family: Georgia, "Times New Roman", Times, serif;
     opacity: .7;
@@ -60,14 +60,14 @@ button {
   }
 
 .formContainer ::placeholder{
-	position:absolute;
-	top:0px;
-	left:0px;
-	font-size:16px;
-    color: teal;	
+    position:absolute;
+    top:0px;
+    left:0px;
+    font-size:16px;
+    color: teal;    
     
     pointer-events: none;
-	transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 .formContainer input{ 
   border:0;
@@ -80,9 +80,9 @@ button {
 }
 
 .formContainer input:focus{ 
- border: none;	
+ border: none;  
  outline:none;
- border-bottom:1px solid whitesmoke;	
+ border-bottom:1px solid whitesmoke;    
 }
 
   
@@ -116,3 +116,4 @@ button {
 .logoForLogin {
     color: whitesmoke
 }
+
