@@ -10,12 +10,11 @@
 
 .userInfoContainer {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: .5fr 2fr;
 }
 
 .userInfo {
-  background-color: #3399ff;
-  width: 66%;
+  background-color: #3D9BAC;
 }
 
 
@@ -27,16 +26,23 @@ div.userInfo.split > div > div.loggedUser{
 div.feed.split > div.hashtags{
     display: inline-flex;
     font-family: 'Times New Roman', Times, serif;
+    margin-left: 43%;
 }
 
 div.feed.split > div.hashtags > p{
     margin: 3px;
+    border-style: outset;
+    border-color: #3D9BAC;
+    border-radius: 25px;
+    box-shadow: 3px 5px #888888;
 }
 
+
+
 .feed {
-  background-color: #ececec;
+  background-color: #DDCEB7;
   right: 0;
-  width: 70%;
+  width: initial;
 }
 
 div.userInfo.split > div > div > img {
@@ -45,13 +51,33 @@ div.userInfo.split > div > div > img {
 }
 
 div.feed.split > div.individualPost{
-    text-align: left;
+    text-align: center;
     font-family: 'advent pro medium';
     margin: 18px;
+    box-shadow: 10px 10px 5px grey;
+    border-style: solid;
+    border-color: #5C6458;
+    border-radius: 25px;
 }
+
+div.feed.split > div.individualPost > img{
+  border-style: outset;
+  border-color: #5C6458;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px grey;
+  margin: inherit;
+}
+
+
 
 div.feed.split > div.individualPost > h4{
     margin: auto;
+    text-transform: capitalize;
+    text-shadow: 2px 2px #FE914E;
+}
+
+div.feed.split > div.individualPost > p{
+  text-transform: capitalize;
 }
 
 div.userInfo.split > div > div > p {
@@ -62,19 +88,44 @@ div.userInfo.split > div > div > p {
   display: flex;
   height: 100%;
   padding: 23px;
-  background-color: tomato;
+  background-color: #FE914E;
   top: 0;
   position: sticky;
+  box-shadow: 4px 5px 4px darkgrey;
 }
 
 .navbar > .allLinks > .link {
   padding-left: 1.5em;
   padding-right: 1em;
   color: black;
+  border-style: outset;
+  border-radius: 25px;
+  box-shadow: 3px 5px #234748;
+}
+div.userInfo.split > div > div > img{
+  border-radius: 25px;
+  box-shadow: 10px 10px 5px #5C6458;
 }
 
-.navbar > .allLinks > .link:hover {
-  color: blue;
+
+div.userInfo.split > div > div > h2{
+  text-transform: capitalize;
+  text-shadow: 2px 2px #5C6458;
+}
+div.userInfo.split > div > div > h5{
+  text-transform: uppercase;
+
+}
+
+nav > div.form > form > input[type=text]{
+  box-shadow: 3px 5px #5C6458;
+  border-radius: 25px;
+}
+
+nav > div.form > form > button{
+  box-shadow: 3px 5px #5C6458;
+  border-radius: 25px;
+  margin-left: 13px;
 }
 
 .navbar > .allLinks > .link:visited {
