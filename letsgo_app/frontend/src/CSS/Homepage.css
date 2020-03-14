@@ -102,6 +102,16 @@ div.userInfo.split > div > div > p {
   border-radius: 25px;
   box-shadow: 3px 5px #234748;
 }
+
+.navbar > .allLinks > .link:hover {
+  border-style: inset;
+  background-color: #3D9BAC;
+}
+
+nav > div.form > form > button:hover {
+  background-color: #3D9BAC;
+}
+
 div.userInfo.split > div > div > img{
   border-radius: 25px;
   box-shadow: 10px 10px 5px #5C6458;
