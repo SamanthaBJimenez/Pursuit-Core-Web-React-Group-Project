@@ -60,9 +60,14 @@ const Upload =()=> {
         }
     }
     const handleNewPost= async()=>{
+        
         let newPost = await axios.post(`http://localhost:3005/posts/`,{poster_id:sessionStorage.loginedUser,imageURL:image,content:contentObj.value})
         console.log(newPost.data)
         handleNewHashTag(newPost.data.payload)
+        alert("new post created")
+        setTimeout(function() {
+        window.location = "../homepage";
+        },1000) 
     }
     const handleNewHashTag =async(data)=>{
         if(hashtagObj.value){
