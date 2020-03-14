@@ -69,7 +69,7 @@ const updateSingleUser = async (req, res, next) =>{
     try{
         let updateUser = await db.one(`UPDATE Users SET profilePic = $1 WHERE id = ${req.params.id} RETURNING *`,[req.body.profilePic])
         res.status(200).json({
-            status: 'succes',
+            status: 'success',
             message: 'updated User',
             payload: updateUser
         })
