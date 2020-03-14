@@ -6,7 +6,7 @@ import { useInput } from "../util/useInput";
 import { Link, NavLink, Router } from "react-router-dom";
 // import { Router } from "react-router-dom";
 import "../css/LogIn.css";
-import videoUrl from '../videoAssets/turkeyMonth.mp4';
+// import videoUrl from '../videoAssets/turkeyMonth.mp4';
 // import Background from '../pics/officiallogo.png';
 
 
@@ -54,7 +54,7 @@ const Login = () => {
   return (
     <div className="mainDiv">
         <div className="videoBox">
-        <video
+        {/* <video
           autoPlay
           loop
           id="background-video"
@@ -67,7 +67,7 @@ const Login = () => {
         >
           <source src={videoUrl} type="video/mp4" />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
       </div>
       
     <div className="leftDiv"> 
