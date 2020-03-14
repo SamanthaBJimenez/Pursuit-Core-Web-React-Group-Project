@@ -9,7 +9,8 @@ const app = express()
 const hashtagsRouter = require('./routes/Hashtags/Hashtags')
 const postsRouter = require('./routes/Posts/Posts');
 const usersRouter = require('./routes/Users/Users');
-const uploadRouter = require('./routes/Uploads/Uploads')
+const uploadRouter = require('./routes/Uploads/Uploads');
+const likesRouter = require('./routes/Likes/Likes');
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -19,6 +20,7 @@ app.use('/hashtags', hashtagsRouter);
 app.use('/posts', postsRouter);
 app.use('/users', usersRouter);
 app.use('/posts/uploads', uploadRouter)
+app.use('/likes', likesRouter);
 
 // app.use(express.static(path.resolve(__dirname, "./public")))
 
