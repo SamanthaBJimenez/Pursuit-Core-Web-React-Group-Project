@@ -6,7 +6,8 @@ CREATE DATABASE letsgo_db;
 
 DROP TABLE IF EXISTS Posts;
 DROP TABLE IF EXISTS Hashtags;
-DROP TABLE IF EXISTS Users;  
+DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS Likes;
 
 CREATE TABLE Users (
     id SERIAL PRIMARY KEY,
@@ -30,6 +31,13 @@ CREATE TABLE Hashtags (
     poster_id INT REFERENCES Users(id),
     post_id  INT REFERENCES Posts(id),
     tag_name TEXT
+);
+
+CREATE TABLE Likes (
+    id SERIAL PRIMARY KEY,
+    liker_id INT REFERENCES Users(id),
+    post_id  INT REFERENCES Posts(id),
+    CONSTRAINT UC_like UNIQUE (liker_id, post_id)
 );
 
 INSERT INTO Users (username, password, bio, profilePic, email)
@@ -74,3 +82,12 @@ INSERT INTO Hashtags (poster_id, post_id, tag_name)
            (1, 9, 'Singapore'),
            (1, 9, 'TheSky');
 
+INSERT INTO Likes (liker_id, post_id)
+    VALUES (1, 1),
+           (2, 2),
+           (3, 3),
+           (4, 4),
+           (3, 4),
+           (2, 4),
+           (1, 4),
+           (3, 5);

@@ -82,9 +82,9 @@ const  UserInfo =()=> {
        return (<>
        <form onSubmit={onUploadImage}>
                 <input type="file" name="myImage" onChange={onSelectImage} />
-                <button type="submit">Upload</button>
+                <button type="submit">Upload Profile</button>
                 </form>
-                <button onClick={handleUpdateProfile}>Update Profile</button>
+                <button onClick={handleUpdateProfile}>Save Profile</button>
                 </>)
     }
   

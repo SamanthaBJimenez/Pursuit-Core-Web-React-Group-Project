@@ -60,15 +60,23 @@ const onSelectImage=(e)=> {
 }
 
 const handleNewUser= async()=>{
-  let newPost = await axios.post("http://localhost:3005/users/", {
+  let newUser = await axios.post("http://localhost:3005/users/", {
     username: username.value,
     password: password.value,
     bio: bio.value,
     profilePic: image,
     email: email.value
   });
-  if(newPost.data.status==="success"){
+  
+  if(newUser.data.status==="success"){
+    sessionStorage.loginedUser=newUser.data.payload.id
     alert("new user created")
+    setTimeout(function() {
+        window.location = "../homepage";
+    },1000) 
+  }else{
+        debugger
+      alert(newUser.data.status)
   }
 }
 
@@ -103,7 +111,6 @@ const handleNewUser= async()=>{
                     </label>
                     <label>
                         Profile Picture
-
                         <input type="file" name="myImage" onChange={onSelectImage} />
                     <button type="submit">Upload</button>
                     </label>
