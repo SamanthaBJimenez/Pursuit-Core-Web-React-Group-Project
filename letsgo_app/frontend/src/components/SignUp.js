@@ -9,38 +9,70 @@ const SignUp = () => {
   const email = useInput("");
   const password = useInput("");
   const bio = useInput("");
-  const profilePic = useInput("");
 
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState("")
+  const [image,SetImagePath] = useState("")
 
-  const handleSumbit = async e => {
+  const onUploadImage=async(e)=>{
     e.preventDefault();
     const formData = new FormData();
-    formData.append("myImage", file);
+    formData.append('myImage',file);
     const config = {
-      headers: {
-        "content-type": "multipart/form-data"
-      }
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
     };
-    try {
-      await axios.post("http://localhost:3005/users/", {
-        username: username.value,
-        password: password.value,
-        bio: bio.value,
-        profilePic: profilePic.value,
-        email: email.value
-      });
 
-      axios
-        .post("/uploadphoto", formData, config)
-        .then(response => {
-          debugger;
-          alert("The file is successfully uploaded");
-        })
-        .catch(error => {});
-    } catch (error) {
-      console.log(error);
-    }}
+    let res= await axios.post("http://localhost:3000/posts/uploads",formData,config)
+    console.log(res.data)
+    // debugger
+    if(res.data.status==="success"){
+        SetImagePath(res.data.payload);
+        alert("Image is successfully uploaded")
+        setFile("")
+    }else{
+        alert(`${res.data.status.message}`)
+    }
+
+}
+
+const checkMimeType =(e)=>{
+    let files = e.target.files 
+    let err = ''
+   const types = ['image/png', 'image/jpeg', 'image/gif']
+    for(let x = 0; x<files.length; x++) {
+         if (types.every(type => files[x].type !== type)) {
+         err += files[x].type+' is not a supported format\n';
+       }
+     };
+   if (err !== '') { 
+        e.target.value = null
+        alert(err)
+         return false; 
+    }
+   return true;
+  }
+
+const onSelectImage=(e)=> {
+    if(checkMimeType(e)){
+        setFile(e.target.files[0]);
+    }
+}
+
+const handleNewUser= async()=>{
+  let newPost = await axios.post("http://localhost:3005/users/", {
+    username: username.value,
+    password: password.value,
+    bio: bio.value,
+    profilePic: image,
+    email: email.value
+  });
+  if(newPost.data.status==="success"){
+    alert("new user created")
+  }
+}
+
+  
     return(
         <div className="signUp">
             <nav>
@@ -52,7 +84,7 @@ const SignUp = () => {
                 <p>Let's Go!</p>
                 <h1>Sign Up</h1>
                 <br/>
-                <form className="signUpForm" onSubmit={handleSumbit}>
+                <form className="signUpForm" onSubmit={onUploadImage}>
                     <label>
                         Username
                         <input type="text" placeholder="JohnDoe" {...username} />
@@ -72,11 +104,11 @@ const SignUp = () => {
                     <label>
                         Profile Picture
 
-                        <input type="file" name="myImage" />
-
+                        <input type="file" name="myImage" onChange={onSelectImage} />
+                    <button type="submit">Upload</button>
                     </label>
-                    <button type="submit"><span>Create Account</span></button>
                 </form>
+                    <button onClick={handleNewUser}><span>Create Account</span></button>
             </div>
         </div>
     )
