@@ -74,6 +74,9 @@ const handleNewUser= async()=>{
     setTimeout(function() {
         window.location = "../homepage";
     },1000) 
+  }else{
+        debugger
+      alert(newUser.data.status)
   }
 }
 
