@@ -8,8 +8,8 @@ const Likes = ({postId}) => {
     const fetchLikes = async (url) => {
       try {
           let res = await axios.get(url);
-          debugger;
-          setLikes(res.data.payload);
+        //   debugger;
+          setLikes(res.data.payload.length);
         } catch (error) {
             setLikes([]);
         }
@@ -37,6 +37,10 @@ const Likes = ({postId}) => {
         fetchLikes(`http://localhost:3005/likes/${postId}`)
     }, []);
 
+    return (
+        <p>{likes}</p>
+    )
+    
     // useEffect(() => {
     //     addLike(`http://localhost:3005/likes/${poster_id}/${post_id}`)
     // }, [likes]);

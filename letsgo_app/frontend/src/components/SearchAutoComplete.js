@@ -1,15 +1,12 @@
 
 import React, { useState, useEffect } from 'react'
-
 import axios from "axios";
 
 const SearchAutoComplete =()=> {
     const [list, setList] = useState([])
     const [suggestion, setSuggest]=useState([])
-    const [text, setText]=useState("")
+    const [search, setSearch]=useState("")
     
-
- 
    const handleChange=(e)=>{
         const value =e.target.value
         let suggestion=[];
@@ -18,11 +15,11 @@ const SearchAutoComplete =()=> {
             suggestion=list.sort().filter(v=>regex.test(v));
         }
         setSuggest(suggestion);
-        setText(value)
+        setSearch(value)
     }
 
     const handleSelected=(value)=>{
-        setText(value);
+        setSearch(value);
         setSuggest([])
     }
 
@@ -38,31 +35,32 @@ const SearchAutoComplete =()=> {
         }
     }
 
-
     const fetchData= async(url,setData)=>{
         let res= await axios.get(url)
-        if(res.data.payload[0].username){
+        try {
             res.data.payload.map((el)=>{
-                setData(prevState=>[...prevState,el.username.toLowerCase()])
+                return setData(prevState=>[...prevState,el.tag_name])
             })
-        }else if (res.data.payload[0].array_agg){
-                res.data.payload.map((el)=>{
-                    setData(prevState=>[...prevState,...el.array_agg])
-                })
+        } catch (error) {
+            console.log(error)
         }
+    }
+    const handleSearch=(e)=>{
+        e.preventDefault() 
+        window.location="../homepage"
+        sessionStorage.searchTerm=e.target.elements[0].value
     }
 
     useEffect(()=>{
-        fetchData("http://localhost:3005/users/",setList)
-        fetchData("http://localhost:3005/hashtags/",setList)
+        fetchData("http://localhost:3005/hashtags/all",setList)
     }, [])
 
-        console.log(text)
         return (
-            <div>
-            <input value={text} type="text" onChange={handleChange}/>
+            <form onSubmit={handleSearch}>
+            <input placeholder="Search Hash Tag" value={search} type="text" onChange={handleChange}/>
               {renderSuggestion()}
-            </div>
+              <button type="submit">Search Tag</button>
+            </form>
         )
     }
 

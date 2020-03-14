@@ -1,8 +1,9 @@
 const db = require('../../db/index');
 
 const getAllHashtags = async (req, res, next) =>{
+
     try{
-        let allHashtags = await db.any('SELECT * FROM Hashtags');
+        let allHashtags = await db.any('SELECT DISTINCT tag_name FROM Hashtags');
         res.status(200).json({
             status: 'success',
             message: 'retrieves all hashtags',
@@ -27,9 +28,9 @@ const hashtagsBasedOnPost = async (req, res, next) =>{
         })
 
     }catch(error){
-        console.log(error)
+        // console.log(error)
         res.status(400).json({
-            status: 'error',
+            status: error,
             message: 'could not retrieve hashtags based on posts'
         })
 
