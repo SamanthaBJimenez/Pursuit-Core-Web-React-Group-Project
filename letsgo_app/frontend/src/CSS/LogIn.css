@@ -1,24 +1,118 @@
-
-.loginOfficial {
-    padding: 1px;
-    /* opacity: 0.5; */
-    background-image: url("../pics/login1.png");
-    background-repeat: no-repeat;
-    background-size: 980px 550px;
+* {
+    margin: 0;
+    padding: 0;
+}
+.mainDiv {
+    height: 100vh;
+    display: grid;
+    justify-content: center;
 }
 
-.logIn {
+
+.logInForm {
     text-align: center;
-    /* height: 100%; */
+    height: 100%; 
     max-width: 300px;
-    height: 200px;
-	padding: 10px 20px;
-	background: green;
-	margin: 10px auto;
-	padding: 20px;
-	background: #f4f7f8;
-	border-radius: 9px;
+    height: 400px;
+	padding: 40px;
+    background-color: #FE914E;
     font-family: Georgia, "Times New Roman", Times, serif;
-    opacity: 1.0;
+    opacity: .7;
+    border-radius: 20px;
+    overflow: hidden;
+} 
+
+button {
+    border: 2px solid teal;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 1.5px 20px;
+    margin-top: 15px;
+}
+
+.headDiv {
+    display: grid;
+}
+
+
+.rightDiv {
+    justify-content: space-evenly;
+    float: right;
+}
+
+
+.letsGoDiv {
+    padding-bottom: 40px;
+    font-family: "Cookie", cursive;
+    padding-bottom: -30px;
+    color: teal;
+}
+
+.theWorldDiv {
+    padding-left: 50px;
+    color: white
+} 
+
   
+.formContainer {
+    font-size: 3rem;
+  }
+
+.formContainer ::placeholder{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+    color: teal;	
+    
+    pointer-events: none;
+	transition: all 0.5s ease-in-out;
+}
+.formContainer input{ 
+  border:0;
+  border-bottom:1px solid white;  
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+  /* color:#e74c3c;  */
+}
+
+.formContainer input:focus{ 
+ border: none;	
+ outline:none;
+ border-bottom:1px solid whitesmoke;	
+}
+
+  
+.stylePassword .icon {
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%)
+}
+  
+.stylePassword {
+    border-style: solid;
+}
+  
+.form__instylePasswordput:valid {
+    border-color: forestgreen;
+}
+  
+.stylePassword:valid + .icon::after {
+    content: '🛫';
+}
+  
+.stylePassword:invalid {
+    border-color: firebrick;
+}
+  
+.stylePassword:invalid + .icon::after {
+    content: '🛬';
+}
+
+.logoForLogin {
+    color: whitesmoke
 }
