@@ -53,7 +53,7 @@ const handleLogOut=()=>{
 }
 
 return(
-            <div>
+            <div className='homepage'>
             
                 <nav className="navbar">
                     <div className="form">

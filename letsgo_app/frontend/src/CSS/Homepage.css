@@ -1,4 +1,6 @@
-
+.homepage{
+  display: grid;
+}
 
 
 .split {
@@ -10,18 +12,15 @@
 
 .userInfoContainer {
   display: grid;
-  grid-template-columns: .5fr 2fr;
+  grid-template-columns: .75fr 2fr;
 }
+
+
 
 .userInfo {
   background-color: #3D9BAC;
 }
 
-
-div.userInfo.split > div > div.loggedUser{
-    position: fixed;
-    text-align: center;
-}
 
 div.feed.split > div.hashtags{
     display: inline-flex;
@@ -45,10 +44,6 @@ div.feed.split > div.hashtags > p{
   width: initial;
 }
 
-div.userInfo.split > div > div > img {
-  height: 125px;
-  width: 100px;
-}
 
 div.feed.split > div.individualPost{
     text-align: center;
@@ -58,6 +53,7 @@ div.feed.split > div.individualPost{
     border-style: solid;
     border-color: #5C6458;
     border-radius: 25px;
+    max-width: 100%;
 }
 
 div.feed.split > div.individualPost > img{
@@ -73,21 +69,18 @@ div.feed.split > div.individualPost > img{
 div.feed.split > div.individualPost > h4{
     margin: auto;
     text-transform: capitalize;
-    text-shadow: 2px 2px #FE914E;
+    text-shadow: 2px 2px grey;
 }
 
 div.feed.split > div.individualPost > p{
   text-transform: capitalize;
 }
 
-div.userInfo.split > div > div > p {
-  font-style: oblique;
-}
-
 .navbar {
   display: flex;
   height: 100%;
-  padding: 23px;
+  max-width: 100%;
+  padding: 10px;
   background-color: #FE914E;
   top: 0;
   position: sticky;
@@ -103,6 +96,11 @@ div.userInfo.split > div > div > p {
   box-shadow: 3px 5px #234748;
 }
 
+nav > div.allLinks{
+  margin-right: 3%;
+}
+
+
 .navbar > .allLinks > .link:hover {
   border-style: inset;
   background-color: #3D9BAC;
@@ -110,6 +108,9 @@ div.userInfo.split > div > div > p {
 
 nav > div.form > form > button:hover {
   background-color: #3D9BAC;
+}
+div.userInfo.split{
+  box-shadow: 0px 15px 15px #5C6458;
 }
 
 div.userInfo.split > div > div > img{
@@ -127,9 +128,44 @@ div.userInfo.split > div > div > h5{
 
 }
 
+div.userInfo.split > div > div > p {
+  font-style: oblique;
+}
+
+div.userInfo.split > div > div.loggedUser{
+  position: inherit;
+  text-align: center;
+}
+
+div.userInfo.split > div > div > img {
+  height: 125px;
+  width: 100px;
+}
+
+div.userInfo.split > div > div > button{
+  box-shadow: 3px 5px #5C6458;
+  border-radius: 25px;
+}
+
+div.userInfo.split > div > div > form > button{
+  box-shadow: 3px 5px #5C6458;
+  border-radius: 25px;
+}
+
+div.userInfo.split > div > div > form > input[type=file]{
+  box-shadow: 3px 5px #5C6458;
+  border-radius: 25px;
+  border-style: solid;
+}
+
 nav > div.form > form > input[type=text]{
   box-shadow: 3px 5px #5C6458;
   border-radius: 25px;
+  margin-top: 7%;
+}
+
+nav > div.form{
+  margin-left: 1%;
 }
 
 nav > div.form > form > button{
@@ -145,4 +181,16 @@ nav > div.form > form > button{
 .navbar > .allLinks {
   position: absolute;
   right: 0;
+  margin-top: 1%;
+}
+div.feed.split > button{
+  box-shadow: 3px 5px #5C6458;
+  border-radius: 25px;
+  margin-top: 2%;
+}
+
+@media screen and (max-width:800px) {
+  .left, .main, .right {
+    width:70%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
 }
