@@ -39,6 +39,7 @@ div.feed.split > div> div.likes > button{
 }
 
 div.feed.split > div> div.likes > button:hover{
+  background-color: #3D9BAC;
   color: #FE914E;
 
 }
@@ -132,10 +133,12 @@ nav > div.allLinks{
 .navbar > .allLinks > .link:hover {
   border-style: inset;
   background-color: #3D9BAC;
+  color: #FE914E;
 }
 
 nav > div.form > form > button:hover {
   background-color: #3D9BAC;
+  color: #FE914E;
 }
 div.userInfo.split{
   box-shadow: 0px 15px 15px #5C6458;
@@ -173,6 +176,12 @@ div.userInfo.split > div > div > img {
 div.userInfo.split > div > div > button{
   box-shadow: 3px 5px #5C6458;
   border-radius: 25px;
+}
+
+div.userInfo.split > div > div > button:hover{
+  background-color: #FE914E;
+  color: #3D9BAC;
+
 }
 
 div.userInfo.split > div > div > form > button{
@@ -215,6 +224,12 @@ div.feed.split > button{
   box-shadow: 3px 5px #5C6458;
   border-radius: 25px;
   margin-top: 2%;
+  margin-left: 40%;
+}
+
+div.feed.split > button:hover{
+  background-color: #3D9BAC;
+  color: #FE914E;
 }
 
 @media screen and (max-width:800px) {
