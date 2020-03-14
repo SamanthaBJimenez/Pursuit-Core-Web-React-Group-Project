@@ -14,7 +14,7 @@ const PostImage = ({ filePath, userName, profilePic, postContent, postId }) => {
   };
 
   return (
-    <div className="individualPost">
+    <div title ={postId} className="individualPost">
       <h4 className="userName">{userName}</h4>
       <img alt=" " src={profilePic} style={handleStyleProfile} />
 

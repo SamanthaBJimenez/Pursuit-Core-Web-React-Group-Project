@@ -82,12 +82,12 @@ INSERT INTO Hashtags (poster_id, post_id, tag_name)
            (1, 9, 'Singapore'),
            (1, 9, 'TheSky');
 
-INSERT INTO Likes (liker_id, post_id)
-    VALUES (1, 1),
-           (2, 2),
-           (3, 3),
-           (4, 4),
-           (3, 4),
-           (2, 4),
-           (1, 4),
-           (3, 5);
+-- INSERT INTO Likes (liker_id, post_id)
+--     VALUES (1, 1),
+--            (2, 2),
+--            (3, 3),
+--            (4, 4),
+--            (3, 4),
+--            (2, 4),
+--            (1, 4),
+--            (3, 5);

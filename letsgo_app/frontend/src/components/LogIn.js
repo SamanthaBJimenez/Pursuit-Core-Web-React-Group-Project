@@ -1,10 +1,13 @@
 import React from "react";
 import axios from "axios";
+
+// import Homepage from "../components/Homepage";
 import { useInput } from "../util/useInput";
 import { Link, NavLink, Router } from "react-router-dom";
-import videoUrl from '../videoAssets/turkeyMonth.mp4';
-import "../css/LogIn.css";
-
+// import { Router } from "react-router-dom";
+//import "../css/LogIn.css"
+// import videoUrl from '../videoAssets/turkeyMonth.mp4';
+// import Background from '../pics/officiallogo.png';
 
 const Login = () => {
   let userNameObj = useInput("");
@@ -27,7 +30,9 @@ const Login = () => {
       return alert(
         "Credentials not entered or you don't exist. Please head over to our sign up page."
       );
+
     }
+
 
   };
 
@@ -38,6 +43,7 @@ const Login = () => {
     minWidth: "100%",
     minHeight: "100%"
   };
+
 
   console.log(userNameObj, emailObj, passwordObj);
   return (
@@ -54,15 +60,17 @@ const Login = () => {
               top: 0,
               ...backgroundCss }}
         >
+
           <source src={videoUrl} type="video/mp4" /> */}
+
           Your browser does not support the video tag.
         </video>
       </div>
       
     <div className="leftDiv"> 
      
-​
       <div className="logoForLogin">
+
        
         <nav>
           Don't have an account?
@@ -117,4 +125,7 @@ const Login = () => {
     </div>
   );
 };
+
+
+
 export default Login;
