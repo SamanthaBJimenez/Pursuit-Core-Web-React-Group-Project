@@ -1,20 +1,19 @@
 // import React, { Component } from 'react';
 import React from "react";
 import axios from "axios";
-// import Homepage from "../components/Homepage"
+// import Homepage from "../components/Homepage";
 import { useInput } from "../util/useInput";
 import { Link, NavLink, Router } from "react-router-dom";
 // import { Router } from "react-router-dom";
-import "../css/LogIn.css";
-import videoUrl from '../videoAssets/turkeyMonth.mp4';
+import "../css/LogIn.css"
+// import videoUrl from '../videoAssets/turkeyMonth.mp4';
 // import Background from '../pics/officiallogo.png';
-​
-​
+
 const Login = () => {
   let userNameObj = useInput("");
   let emailObj = useInput("");
   let passwordObj = useInput("");
-​
+
   const handleVerification = async e => {
     e.preventDefault();
     let inputUserName = userNameObj.value;
@@ -31,10 +30,10 @@ const Login = () => {
       return alert(
         "Credentials not entered or you don't exist. Please head over to our sign up page."
       );
-    }
-​
+      }
+
   };
-​
+
   const backgroundCss = {
     position: "absolute",
     right: "0",
@@ -42,10 +41,10 @@ const Login = () => {
     minWidth: "100%",
     minHeight: "100%"
   };
-​
+
 //
   // const handleChange = (e) => {
-​
+
   //     // this.setState({
   //     //     [e.target.name]: e.target.value
   //     // })
@@ -65,7 +64,7 @@ const Login = () => {
               top: 0,
               ...backgroundCss }}
         >
-          <source src={videoUrl} type="video/mp4" />
+          {/* <source src={videoUrl} type="video/mp4" /> */}
           Your browser does not support the video tag.
         </video>
       </div>
@@ -73,7 +72,7 @@ const Login = () => {
     <div className="leftDiv"> 
      
 ​
-      <div className="logoForLogin"> */}
+      <div className="logoForLogin"> 
        
         <nav>
           Don't have an account?
@@ -81,7 +80,7 @@ const Login = () => {
             {" "}
             Sign up here.{" "}
           </NavLink>
-        </nav> */}
+        </nav> 
        </div>
 ​
       <div className="logInForm">
@@ -128,5 +127,5 @@ const Login = () => {
     </div>
   );
 };
-​
+
 export default Login;
