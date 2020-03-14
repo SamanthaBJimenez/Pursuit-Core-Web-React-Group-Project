@@ -96,7 +96,7 @@ const  UserInfo =()=> {
         <h5>{user.email}</h5>
         <img src={user.profilepic} alt="User Profile"></img>
         <br></br>
-        <button onClick={()=>uploadProfileImg()}>Update User Profile Image</button>
+        <button onClick={()=>uploadProfileImg()}>Upload Profile Pic</button>
         <br></br>
         <p>{user.bio}</p>
         {showUpload?(uploadForm()):null}

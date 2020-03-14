@@ -10,7 +10,6 @@ export class Letsgo extends Component {
     render() {
         return (
             <div className="letsgo">
-
            <Switch >
                <Route path={"/signup"}>
                    <SignUp/>
