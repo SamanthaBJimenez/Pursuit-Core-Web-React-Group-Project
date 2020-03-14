@@ -5,7 +5,7 @@ import axios from "axios";
 import { useInput } from "../util/useInput";
 import { Link, NavLink, Router } from "react-router-dom";
 // import { Router } from "react-router-dom";
-import "../css/LogIn.css";
+import "../css/LogIn.css"
 // import videoUrl from '../videoAssets/turkeyMonth.mp4';
 // import Background from '../pics/officiallogo.png';
 
@@ -72,7 +72,7 @@ const Login = () => {
     <div className="leftDiv"> 
      
 ​
-      <div className="logoForLogin"> */}
+      <div className="logoForLogin"> 
        
         <nav>
           Don't have an account?
@@ -80,7 +80,7 @@ const Login = () => {
             {" "}
             Sign up here.{" "}
           </NavLink>
-        </nav> */}
+        </nav> 
        </div>
 ​
       <div className="logInForm">
