@@ -11,6 +11,9 @@ export class Letsgo extends Component {
         return (
             <div className="letsgo">
            <Switch >
+               <Route exact path={"/"}>
+                   <LogIn/>
+               </Route>
                <Route path={"/signup"}>
                    <SignUp/>
                </Route>
@@ -19,9 +22,6 @@ export class Letsgo extends Component {
                </Route>
                <Route path={"/upload"}>
                    <Upload/>
-               </Route>
-               <Route path={"/login"}>
-                   <LogIn/>
                </Route>
            </Switch>
             </div>
