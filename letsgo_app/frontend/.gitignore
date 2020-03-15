@@ -12,7 +12,10 @@
 /build
 /src/videoAssets
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ce9c69db34e65a5b1db10e4ea2b31f6c5b66819b
 # misc
 .DS_Store
 .env.local
