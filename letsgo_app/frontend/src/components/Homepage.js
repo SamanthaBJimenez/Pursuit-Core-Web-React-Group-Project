@@ -61,7 +61,7 @@ return(
                     </div>
                     <div className="allLinks">
                         <NavLink className="link" exact to={"/upload"}>Upload</NavLink>
-                        <NavLink className="link" onClick={handleLogOut} exact to={"/login"}>Log Out</NavLink>
+                        <NavLink className="link" onClick={handleLogOut} exact to={"/"}>Log Out</NavLink>
                     </div>
                 </nav>
         
