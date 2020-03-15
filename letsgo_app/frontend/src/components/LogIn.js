@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import { NavLink } from "react-router-dom";
 import "../css/LogIn.css"
-import videoUrl from '../videoAssets/turkeyMonth.mp4';
+// import videoUrl from '../videoAssets/turkeyMonth.mp4';
 import { useInput } from '../util/useInput';
 
 
@@ -53,7 +53,7 @@ console.log(emailObj, passwordObj)
                       ...backgroundCss }}
                 >
 
-                  <source src={videoUrl} type="video/mp4" />
+                  {/* <source src={videoUrl} type="video/mp4" /> */}
 
                   Your browser does not support the video tag.
                 </video>
