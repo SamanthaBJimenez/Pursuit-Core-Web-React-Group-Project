@@ -8,14 +8,6 @@
     overflow: hidden;
 }
 
-img {
-    object-fit: cover;
-    margin: -50px -100px -5px -35px;
-    width: 360px;
-    height: 200px;
-    overflow: hidden;
-}
-
 .mainPage {
     text-align: left;
     margin: 5% 30% 10% 30%;
@@ -65,18 +57,6 @@ button {
 button:hover {
     background-color: #E99332;
     color: white;
-}
-
-h1 {
-    margin: 10px 0px -20px 0px;
-    text-align: right;
-}
-
-p {
-    font-size: 50px;
-    margin: 0px;
-    text-align: right;
-    font-weight: bold;
 }
 
 .signUpForm {

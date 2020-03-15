@@ -1,7 +1,6 @@
-.homepage{
+.homepage {
   display: grid;
 }
-
 
 .split {
   height: 100%;
@@ -12,105 +11,95 @@
 
 .userInfoContainer {
   display: grid;
-  grid-template-columns: .75fr 2fr;
+  grid-template-columns: 0.75fr 2fr;
 }
 
-div.feed.split > div> div.likes{
+div.feed.split > div > div.likes {
   display: flex;
   padding-bottom: 2%;
 }
 
-div.feed.split > div> div.likes > p{
-    margin-top: 19px;
-    padding-left: 10px;
+div.feed.split > div > div.likes > p {
+  margin-top: 19px;
+  padding-left: 10px;
 }
 
-
-div.feed.split > div> div.likes > button{
-    border: 2px solid teal;
-    transition-duration: 0.4s;
-    border-radius: 5px;
-    font-size: 13px;
-    padding: 1.5px 5px;
-    margin-top: 15px;
-    margin-left: 50%;
-    box-shadow: 7px 7px 6px grey;
-    transition-duration: 0.4s;
+div.feed.split > div > div.likes > button {
+  border: 2px solid teal;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 1.5px 5px;
+  margin-top: 15px;
+  margin-left: 50%;
+  box-shadow: 7px 7px 6px grey;
+  transition-duration: 0.4s;
 }
 
-div.feed.split > div> div.likes > button:hover{
-  background-color: #3D9BAC;
-  color: #FE914E;
-
+div.feed.split > div > div.likes > button:hover {
+  background-color: #3d9bac;
+  color: #fe914e;
 }
-
 
 .userInfo {
-  background-color: #3D9BAC;
+  background-color: #3d9bac;
 }
 
-
-div.feed.split > div.hashtags{
-    display: inline-flex;
-    font-family: 'Times New Roman', Times, serif;
-    margin-left: 43%;
+div.feed.split > div.hashtags {
+  display: inline-flex;
+  font-family: "Times New Roman", Times, serif;
+  margin-left: 43%;
 }
 
-div.feed.split > div.hashtags > p{
-    margin: 3px;
-    border-style: outset;
-    border-color: #3D9BAC;
-    border-radius: 25px;
-    box-shadow: 3px 5px #888888;
+div.feed.split > div.hashtags > p {
+  margin: 3px;
+  border-style: outset;
+  border-color: #3d9bac;
+  border-radius: 25px;
+  box-shadow: 3px 5px #888888;
 }
-
-
 
 .feed {
-  background-color: #DDCEB7;
+  background-color: #ddceb7;
   right: 0;
   width: initial;
 }
 
-
-div.feed.split > div.individualPost{
-    text-align: center;
-    font-family: 'advent pro medium';
-    margin: 18px;
-    box-shadow: 10px 10px 5px grey;
-    border-style: solid;
-    border-color: #5C6458;
-    border-radius: 25px;
-    max-width: 100%;
+div.feed.split > div.individualPost {
+  text-align: center;
+  font-family: "advent pro medium";
+  margin: 18px;
+  box-shadow: 10px 10px 5px grey;
+  border-style: solid;
+  border-color: #5c6458;
+  border-radius: 25px;
+  max-width: 100%;
 }
 
-div.feed.split > div.individualPost > img{
+div.feed.split > div.individualPost > img {
   border-style: outset;
-  border-color: #5C6458;
+  border-color: #5c6458;
   border-radius: 10px;
   box-shadow: 10px 10px 5px grey;
   margin: inherit;
 }
 
-
-
-div.feed.split > div.individualPost > h4{
-    margin: auto;
-    text-transform: capitalize;
-    text-shadow: 2px 2px grey;
+div.feed.split > div.individualPost > h4 {
+  margin: auto;
+  text-transform: capitalize;
+  text-shadow: 2px 2px grey;
 }
 
-div.feed.split > div.individualPost > p{
+div.feed.split > div.individualPost > p {
   text-transform: capitalize;
   padding-bottom: 2%;
 }
 
 .navbar {
   display: flex;
-  height: 100%;
   max-width: 100%;
   padding: 10px;
-  background-color: #FE914E;
+  background-color: #fe914e;
   top: 0;
   position: sticky;
   box-shadow: 4px 5px 4px darkgrey;
@@ -125,45 +114,62 @@ div.feed.split > div.individualPost > p{
   box-shadow: 3px 5px #234748;
 }
 
-nav > div.allLinks{
-  margin-right: 3%;
+nav > div.allLinks > a.upload {
+  border-style: inset;
+  border: 2px solid grey;
+  background-color: #3d9bac;
+  color: black;
+  border-radius: 20%;
+  box-shadow: 3px 5px #5c6458;
+  border-radius: 25px;
 }
 
+nav > div.allLinks > a.upload:hover {
+  background-color: black;
+  color: #fe914e;
+}
 
-.navbar > .allLinks > .link:hover {
+nav > div.allLinks > a.logOut {
   border-style: inset;
-  background-color: #3D9BAC;
-  color: #FE914E;
+  border: 2px solid grey;
+  background-color: #3d9bac;
+  color: black;
+  border-radius: 20%;
+  box-shadow: 3px 5px #5c6458;
+  border-radius: 25px;
+}
+nav > div.allLinks > a.logOut:hover {
+  background-color: black;
+  color: #fe914e;
 }
 
 nav > div.form > form > button:hover {
-  background-color: #3D9BAC;
-  color: #FE914E;
-}
-div.userInfo.split{
-  box-shadow: 0px 15px 15px #5C6458;
+  background-color: #3d9bac;
+  color: #fe914e;
 }
 
-div.userInfo.split > div > div > img{
+div.userInfo.split {
+  box-shadow: 0px 15px 15px #5c6458;
+}
+
+div.userInfo.split > div > div > img {
   border-radius: 25px;
-  box-shadow: 10px 10px 5px #5C6458;
+  box-shadow: 10px 10px 5px #5c6458;
 }
 
-
-div.userInfo.split > div > div > h2{
+div.userInfo.split > div > div > h2 {
   text-transform: capitalize;
-  text-shadow: 2px 2px #5C6458;
+  text-shadow: 2px 2px #5c6458;
 }
-div.userInfo.split > div > div > h5{
+div.userInfo.split > div > div > h5 {
   text-transform: uppercase;
-
 }
 
 div.userInfo.split > div > div > p {
   font-style: oblique;
 }
 
-div.userInfo.split > div > div.loggedUser{
+div.userInfo.split > div > div.loggedUser {
   position: inherit;
   text-align: center;
 }
@@ -173,40 +179,39 @@ div.userInfo.split > div > div > img {
   width: 100px;
 }
 
-div.userInfo.split > div > div > button{
-  box-shadow: 3px 5px #5C6458;
+div.userInfo.split > div > div > button {
+  box-shadow: 3px 5px #5c6458;
   border-radius: 25px;
 }
 
-div.userInfo.split > div > div > button:hover{
-  background-color: #FE914E;
-  color: #3D9BAC;
-
+div.userInfo.split > div > div > button:hover {
+  background-color: #fe914e;
+  color: #3d9bac;
 }
 
-div.userInfo.split > div > div > form > button{
-  box-shadow: 3px 5px #5C6458;
+div.userInfo.split > div > div > form > button {
+  box-shadow: 3px 5px #5c6458;
   border-radius: 25px;
 }
 
-div.userInfo.split > div > div > form > input[type=file]{
-  box-shadow: 3px 5px #5C6458;
+div.userInfo.split > div > div > form > input[type="file"] {
+  box-shadow: 3px 5px #5c6458;
   border-radius: 25px;
   border-style: solid;
 }
 
-nav > div.form > form > input[type=text]{
-  box-shadow: 3px 5px #5C6458;
+nav > div.form > form > input[type="text"] {
+  box-shadow: 3px 5px #5c6458;
   border-radius: 25px;
   margin-top: 7%;
 }
 
-nav > div.form{
+nav > div.form {
   margin-left: 1%;
 }
 
-nav > div.form > form > button{
-  box-shadow: 3px 5px #5C6458;
+nav > div.form > form > button {
+  box-shadow: 3px 5px #5c6458;
   border-radius: 25px;
   margin-left: 13px;
 }
@@ -220,20 +225,28 @@ nav > div.form > form > button{
   right: 0;
   margin-top: 1%;
 }
-div.feed.split > button{
-  box-shadow: 3px 5px #5C6458;
+nav > div.allLinks {
+  margin-right: 10%;
+  margin-bottom: 2%;
+  margin-left: 10%;
+}
+
+div.feed.split > button {
+  box-shadow: 3px 5px #5c6458;
   border-radius: 25px;
   margin-top: 2%;
   margin-left: 40%;
 }
 
-div.feed.split > button:hover{
-  background-color: #3D9BAC;
-  color: #FE914E;
+div.feed.split > button:hover {
+  background-color: #3d9bac;
+  color: #fe914e;
 }
 
-@media screen and (max-width:800px) {
-  .left, .main, .right {
-    width:70%; /* The width is 100%, when the viewport is 800px or smaller */
+@media screen and (max-width: 800px) {
+  .left,
+  .main,
+  .right {
+    width: 70%; /* The width is 100%, when the viewport is 800px or smaller */
   }
 }
